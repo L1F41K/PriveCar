@@ -1275,6 +1275,12 @@ a {
 	.service-title {
 		font-size: 26px;
 	}
+	.our-works__header {
+		margin-bottom: 30px;
+	}
+	.our-works__title {
+		margin-bottom: 30px;
+	}
 }
 @media (max-width: 522px) {
 	.title,
