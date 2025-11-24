@@ -195,10 +195,13 @@ a {
 
 @media (max-width: 1024px) {
 	.hero-title-svg {
-		height: calc(var(--real-vh) * 45);
+		position: sticky;
+		top: 0;
+		height: 40vh; /* стало короче → меньше пустоты */
 	}
+
 	.hero-video {
-		top: calc(var(--real-vh) * 45);
+		top: 40vh; /* ровно под SVG */
 		width: 100%;
 		aspect-ratio: 16 / 9;
 		height: auto;
@@ -209,10 +212,11 @@ a {
 
 @media (max-width: 768px) {
 	.hero-title-svg {
-		height: calc(var(--real-vh) * 40);
+		height: 30vh; /* маленькая компактная шапка */
 	}
+
 	.hero-video {
-		top: calc(var(--real-vh) * 40);
+		top: 30vh;
 		width: 100%;
 		aspect-ratio: 16 / 9;
 		height: auto;
@@ -223,11 +227,11 @@ a {
 
 @media (max-width: 480px) {
 	.hero-title-svg {
-		height: calc(var(--real-vh) * 35);
+		height: 25vh;
 	}
 
 	.hero-video {
-		top: calc(var(--real-vh) * 35);
+		top: 25vh;
 		width: 100%;
 		aspect-ratio: 16 / 9;
 		height: auto;
