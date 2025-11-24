@@ -193,37 +193,46 @@ a {
 	padding-bottom: 0;
 }
 
-/* === Адаптивные правки для маленьких экранов === */
 @media (max-width: 1024px) {
 	.hero-title-svg {
-		height: calc(var(--real-vh) * 50); /* меньше sticky */
+		height: calc(var(--real-vh) * 45);
 	}
 	.hero-video {
-		top: calc(var(--real-vh) * 50);
-		height: calc(var(--real-vh) * 100);
+		top: calc(var(--real-vh) * 45);
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		height: auto;
 		padding: 20px;
+		object-fit: cover;
 	}
 }
 
 @media (max-width: 768px) {
 	.hero-title-svg {
-		height: calc(var(--real-vh) * 40); /* ещё меньше */
+		height: calc(var(--real-vh) * 40);
 	}
 	.hero-video {
 		top: calc(var(--real-vh) * 40);
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		height: auto;
 		padding: 10px;
+		object-fit: cover;
 	}
 }
 
 @media (max-width: 480px) {
 	.hero-title-svg {
-		height: calc(
-			var(--real-vh) * 35
-		); /* никто не любит giant-sticky на мобилках */
+		height: calc(var(--real-vh) * 35);
 	}
+
 	.hero-video {
 		top: calc(var(--real-vh) * 35);
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		height: auto;
 		padding: 0;
+		object-fit: cover;
 	}
 }
 
