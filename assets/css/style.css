@@ -1,0 +1,1257 @@
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	font-family: 'Montserrat' !important;
+	background: #1b3026;
+	color: #ebe5d7;
+	overflow-x: hidden;
+}
+* {
+	-webkit-tap-highlight-color: transparent;
+}
+button {
+	font: inherit; /* САМОЕ ГЛАВНОЕ — наследует ВСЁ: size, family, weight, line-height и т.д. */
+	letter-spacing: inherit; /* если у родителя есть letter-spacing */
+	text-transform: inherit; /* если у родителя uppercase/lowercase */
+}
+h1 {
+	font-weight: 500;
+	font-size: 64px;
+	line-height: 110%;
+	letter-spacing: 0;
+	text-transform: uppercase;
+	color: var(--main-white);
+}
+a {
+	text-decoration: none;
+	color: var(--main-white);
+}
+::-webkit-scrollbar {
+	width: 0;
+}
+:root {
+	--main-white: #ebe5d7;
+	--main-green: #1c3026;
+	--accent-blue: #5f6e7f;
+	--accent-yellow: #ffeda9;
+	--accent-brown: #694434;
+}
+/* ХЕДЕР — ПОЛНОСТЬЮ ПРОЗРАЧНЫЙ */
+.main-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding: 32px 40px;
+	z-index: 1000;
+	background: transparent !important; /* полностью прозрачный */
+	pointer-events: none; /* чтобы не мешал скроллу */
+}
+.main-header * {
+	pointer-events: auto;
+} /* но кнопки кликабельны */
+
+@media (max-width: 768px) {
+	.main-header {
+		padding: 16px;
+	}
+}
+
+/* Твой хедер — без изменений */
+.header-line {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 56px;
+	position: relative;
+}
+.logo {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+.logo img {
+	height: 46px;
+}
+@media (max-width: 768px) {
+	.logo img {
+		height: 40px;
+	}
+}
+
+.header-btn {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-size: 16px;
+	font-weight: 500;
+	text-transform: uppercase;
+	color: var(--main-white);
+	text-decoration: none;
+}
+@media (max-width: 768px) {
+	.header-btn {
+		font-size: 14px;
+		gap: 8px;
+	}
+}
+
+/* Квадратики — твой код */
+.squares {
+	position: relative;
+	width: 14px;
+	height: 14px;
+	flex-shrink: 0;
+}
+.sq {
+	position: absolute;
+	width: 5px;
+	height: 5px;
+	background: var(--main-white);
+	border-radius: 0.5px;
+	transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.menu-squares .sq:nth-child(1) {
+	top: -1px;
+	left: 0;
+}
+.menu-squares .sq:nth-child(2) {
+	top: -1px;
+	left: 10px;
+}
+.menu-squares .sq:nth-child(3) {
+	top: 9px;
+	left: 0;
+}
+.menu-squares .sq:nth-child(4) {
+	top: 9px;
+	left: 10px;
+}
+.menu-btn[data-state='open'] .sq {
+	top: 1.5px !important;
+	left: 2px !important;
+	width: 10px !important;
+	height: 10px !important;
+}
+.record-squares .sq:nth-child(1) {
+	top: 0;
+	left: 5px;
+}
+.record-squares .sq:nth-child(2) {
+	top: 10px;
+	left: 5px;
+}
+.record-btn[data-state='open'] .sq {
+	top: 2px !important;
+	left: 4.5px !important;
+	width: 5px !important;
+	height: 10px !important;
+}
+
+/* ГЛАВНОЕ — HERO */
+.hero {
+	padding-top: 40px;
+	position: relative;
+	height: 180vh; /* важно: 100vh для SVG + 100vh для видео */
+}
+
+/* SVG — sticky, залипает на top:0 при скролле */
+.hero-title-svg {
+	position: sticky;
+	top: 0;
+	height: 63vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 1;
+	pointer-events: none;
+	background: var(
+		--main-green
+	); /* фон, чтобы видео не просвечивало изначально */
+}
+.hero-title-svg img {
+	width: 100%;
+	max-width: 1920px;
+	height: auto;
+}
+
+/* ВИДЕО — обычный блок в потоке, но с transform для плавного наезда */
+.hero-video {
+	position: absolute;
+	top: 70vh; /* начинается строго под SVG */
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	object-fit: cover;
+	z-index: 2; /* выше SVG */
+	padding: 40px;
+	box-sizing: border-box;
+	padding-bottom: 0;
+}
+
+/* Контент после */
+.after-hero {
+	position: relative;
+	z-index: 3;
+	min-height: 100vh;
+	background: var(--main-green);
+	color: white;
+	padding: 100px 40px;
+	text-align: center;
+}
+
+/* Review-slider */
+.review-slider {
+	min-height: 105vh;
+	position: relative;
+	overflow: hidden;
+	padding: 0 60px;
+
+	/* теперь слайды позиционируются одинаково */
+}
+
+/* Каждый слайд занимает весь контейнер и позиционируется абсолютом */
+.slide {
+	position: absolute;
+	inset: 0; /* top:0; right:0; bottom:0; left:0; */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none; /* блокируем клики у неактивных слайдов */
+	transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.6s;
+	z-index: 1;
+	will-change: transform, opacity;
+	opacity: 0;
+	transform: translateX(100%); /* все справа от экрана по умолчанию */
+}
+
+/* активный слайд */
+.slide.active-slide {
+	opacity: 1;
+	transform: translateX(0);
+	pointer-events: auto;
+	z-index: 3;
+}
+
+/* предыдущий слайд при анимации влево */
+.slide.to-left {
+	transform: translateX(-100%);
+	opacity: 0;
+}
+
+/* следующий — вправо */
+.slide.to-right {
+	transform: translateX(100%);
+	opacity: 0;
+}
+
+/* Центральный контент */
+.center-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	z-index: 4;
+}
+
+/* Главное видео */
+.main-video-wrap {
+	width: 162px;
+	height: 228px;
+	overflow: hidden;
+	transition: all 1s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.slide.open-video .main-video-wrap {
+	width: 736px;
+	height: 438px;
+}
+
+.main-video {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* Кнопка Смотреть/Закрыть */
+.toggle-btn {
+	margin-top: 24px;
+	background: none;
+	border: none;
+	color: var(--accent-yellow);
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 140%;
+	letter-spacing: 0%;
+	text-align: center;
+	vertical-align: middle;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+.toggle-btn .close {
+	display: none;
+}
+.slide.open-video .toggle-btn .open {
+	display: none;
+}
+.slide.open-video .toggle-btn .close {
+	display: inline;
+}
+
+/* Заголовок */
+.title {
+	font-size: 64px;
+	font-weight: 500;
+	line-height: 1.1;
+	text-transform: uppercase;
+	margin: 48px 0 32px;
+	transition: all 1s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.slide.open-video .title {
+	font-size: 24px;
+	margin: 24px 0 20px;
+}
+
+/* Подробнее */
+.more-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	color: var(--accent-yellow);
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 140%;
+	text-transform: uppercase;
+	text-decoration: none;
+	margin-top: 20px;
+}
+.more-btn img {
+	width: 40px;
+}
+
+/* Боковые видео — остаются прижатыми */
+.side-video {
+	position: absolute;
+	bottom: 120px;
+	width: 162px;
+	height: 228px;
+	overflow: hidden;
+	pointer-events: none;
+	z-index: 2;
+}
+.side-video video {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.side-video.left {
+	left: 60px;
+}
+.side-video.right {
+	right: 60px;
+}
+
+/* Стрелки */
+.arrow {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 60px;
+	height: 60px;
+	background: none;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+	z-index: 10;
+}
+.arrow img {
+	width: 60px;
+}
+.prev {
+	left: 40px;
+}
+.next {
+	right: 40px;
+}
+.next img {
+	transform: rotate(180deg);
+}
+
+/* ===================== УСЛУГИ — ФИНАЛЬНО ===================== */
+.services-section {
+	position: relative;
+	overflow: hidden;
+	margin-top: 80px;
+}
+
+.closing-line {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100%;
+	height: auto;
+	pointer-events: none;
+}
+
+.services-grid {
+	display: grid;
+	gap: 40px;
+	padding: 0 40px;
+	max-width: 2080px;
+	margin: 0 auto;
+
+	/* 3 резиновые карточки, если экран ≥1440px */
+	grid-template-columns: repeat(3, minmax(480px, 640px));
+	justify-content: center;
+	grid-auto-rows: 440px;
+}
+.closing-line-wrap {
+	margin-bottom: 138px;
+}
+/* 2 колонки, если <1440px */
+@media (max-width: 1439px) {
+	.services-grid {
+		grid-template-columns: repeat(2, minmax(380px, 1fr));
+		grid-auto-rows: calc(440px * 0.9); /* чуть ниже */
+	}
+}
+
+/* 1 колонка */
+@media (max-width: 900px) {
+	.services-grid {
+		grid-template-columns: 1fr;
+		padding: 0 20px;
+		gap: 30px;
+	}
+}
+
+/* Карточка тянется */
+.service-card {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	cursor: pointer;
+	display: block;
+}
+
+.service-video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	opacity: 0;
+	transform: scale(1.1);
+	transition: opacity 0.8s cubic-bezier(0.22, 0.61, 0.36, 1),
+		transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.service-card:hover .service-video {
+	opacity: 1;
+	transform: scale(1);
+}
+
+/* Контент — центрируем изначально */
+.service-content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	width: calc(100% - 80px);
+	padding: 80px 40px;
+	box-sizing: border-box;
+	z-index: 2;
+	transition: all 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+/* При ховере — контент уезжает вверх, но кнопка остаётся внизу */
+.service-card:hover .service-content {
+	top: 0;
+	transform: translate(-50%, 0);
+	justify-content: flex-start;
+	padding-top: 80px;
+}
+
+/* Заголовок с "степенью" */
+.service-title {
+	font-size: 32px;
+	font-weight: 500;
+	text-transform: uppercase;
+	color: var(--main-white);
+	margin: 0;
+	line-height: 1.1;
+	letter-spacing: 0;
+}
+
+.service-count {
+	font-size: 14px;
+	vertical-align: super; /* Главная магия — цифра как степень */
+	line-height: 1.4;
+	margin-left: 4px;
+	font-weight: 400;
+	font-style: normal;
+}
+
+/* Кнопка — всегда внизу карточки */
+.service-more {
+	position: absolute;
+	bottom: 80px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	font-size: 12px;
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 0;
+	line-height: 140%;
+	color: var(--accent-yellow);
+	opacity: 0;
+	transform: translateX(-50%) translateY(20px);
+	transition: all 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+	z-index: 3;
+	pointer-events: all;
+}
+
+.service-card:hover .service-more {
+	opacity: 1;
+	transform: translateX(-50%) translateY(0);
+}
+
+.more-icon {
+	width: 40px;
+	height: 40px;
+}
+.pin-wrapper {
+	position: relative;
+	z-index: 1;
+	height: calc(var(--real-vh) * 200);
+}
+
+.pinned-section {
+	position: sticky;
+	top: 0;
+	height: calc(var(--real-vh) * 100);
+	z-index: 1;
+}
+
+.overlap-section {
+	position: relative;
+	margin-top: calc(var(--real-vh) * -100);
+	z-index: 2;
+	background-color: var(--main-green);
+}
+/* НАШИ РАБОТЫ */
+.our-works {
+	position: relative;
+	padding: 100px 40px; /* боковые отступы 40px */
+	overflow: hidden;
+}
+
+.our-works__line {
+	width: 100%;
+	margin-bottom: 60px;
+	display: block;
+}
+
+.our-works__header {
+	margin-bottom: 80px;
+	text-align: left; /* всё влево */
+}
+
+.our-works__title {
+	font-size: 64px;
+	font-weight: 500;
+	color: var(--main-white);
+	line-height: 1.1;
+	letter-spacing: 0;
+	text-transform: uppercase;
+	margin: 0 0 80px;
+}
+
+.our-works__nav {
+	display: flex;
+}
+
+.our-works__nav-btn {
+	background: none;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+}
+
+.our-works__nav-btn img {
+	width: 70px;
+	height: 70px;
+	display: block;
+}
+
+.our-works__nav-btn--next img {
+	transform: rotate(180deg);
+}
+
+/* Нижняя часть — фон только на нижние 50% высоты секции */
+.our-works__bottom {
+	position: relative;
+	margin-top: 80px;
+	padding-bottom: 40px;
+	/* Убираем фиксированную высоту и паддинги */
+}
+
+/* Создаём "маску": верх прозрачный, низ — с твоим SVG */
+.our-works__bottom::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 35%; /* начинаем ровно с середины блока */
+	bottom: 0;
+	background-image: url('/assets/svg/lines.svg');
+	background-size: cover;
+	background-position: center top;
+	background-repeat: no-repeat;
+	pointer-events: none; /* чтобы не мешал кликам */
+	z-index: 1;
+}
+
+/* Контент (слайдер и кнопка) — поверх фона */
+.works-slider,
+.our-works__all {
+	position: relative;
+	z-index: 2;
+}
+
+.works-slider .swiper {
+	overflow: hidden;
+}
+.works-slider .swiper-slide {
+	flex-shrink: 0; /* критически важно для плавного маятника */
+}
+.works-slider .swiper-slide {
+	width: 25%;
+}
+.works-slider__item {
+	position: relative;
+	display: block;
+	cursor: pointer;
+	overflow: hidden;
+}
+/* Затемнение при ховере */
+.works-slider__item::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: #1b302640;
+	opacity: 0;
+	transition: opacity 0.35s ease;
+	z-index: 2;
+	pointer-events: none;
+}
+
+/* Иконка — обычный <img>, но стилизуем как квадратную кнопку */
+.works-slider__icon {
+	position: absolute;
+	top: 24px;
+	right: 24px;
+	width: 24px;
+	height: 24px;
+	background-color: #1b3026;
+	padding: 8px;
+	box-sizing: content-box; /* 24 + 16 = 40x40 */
+	opacity: 0;
+	transition: opacity 0.35s ease;
+	z-index: 3;
+	pointer-events: none;
+	/* Без border-radius — как и просил */
+}
+/* Показываем оверлей и иконку */
+.works-slider__item:hover::before {
+	opacity: 1;
+}
+
+.works-slider__item:hover .works-slider__icon {
+	opacity: 1;
+}
+
+/* УБИРАЕМ ЛЮБОЕ подпрыгивание карточки */
+.works-slider__item:hover {
+	transform: none !important;
+}
+
+/* Убираем дрожание маятника — критически важно! */
+.works-slider .swiper-slide {
+	flex-shrink: 0; /* это лечит 99% проблем с "тряской" при reverse autoplay */
+}
+.works-slider__img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+.works-slider__caption {
+	margin-top: 20px;
+	color: var(--main-white);
+	font-size: 14px;
+	font-weight: 400;
+	letter-spacing: 0;
+	line-height: 1.4;
+	text-align: left;
+}
+
+.our-works__all {
+	margin-top: 60px;
+	display: inline-flex;
+	align-items: center;
+	gap: 16px;
+	background: none;
+	border: none;
+	color: var(--accent-yellow);
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 140%;
+	letter-spacing: 0;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+/* Адаптив */
+@media (max-width: 1439px) {
+	.works-slider .swiper-slide {
+		width: 33.333%;
+	}
+}
+@media (max-width: 1023px) {
+	.works-slider .swiper-slide {
+		width: 50%;
+	}
+}
+@media (max-width: 767px) {
+	.works-slider .swiper-slide {
+		width: 100%;
+	}
+
+	.our-works__title {
+		font-size: 36px;
+	}
+}
+
+/* Footer */
+.footer {
+	padding: 40px;
+	padding-top: 0;
+}
+.footer-line img {
+	width: 100%;
+	margin-bottom: 120px;
+}
+.footer-nav {
+	color: var(--main-white);
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	font-family: 'Arial', sans-serif;
+	font-size: 15px;
+	line-height: 1.8;
+}
+.phone-form__wrapper {
+	position: relative;
+	max-width: 312px;
+	height: 52px;
+	margin-top: 45px;
+	margin-bottom: 60px;
+}
+
+.phone-form__input {
+	width: 100%;
+	height: 100%;
+	padding: 0 90px 0 24px;
+	background: var(--accent-yellow);
+	border: none;
+	font-size: 18px;
+	font-weight: 500;
+	color: #000;
+	outline: none;
+}
+
+.phone-form__input::placeholder {
+	color: #1b3026;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 140%;
+	letter-spacing: 0;
+	font-family: 'Montserrat';
+}
+
+.phone-form__submit {
+	position: absolute;
+	top: 6px;
+	right: 6px;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.phone-form__submit svg {
+	width: 24px;
+	height: 24px;
+}
+
+.phone-form__note {
+	margin-top: 20px;
+	font-size: 13px;
+	color: #6a8a6a;
+}
+
+.phone-form__note a {
+	color: #a0b5a0;
+	text-decoration: underline;
+}
+.footer-nav__left {
+	min-width: 300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.footer-nav__contacts-item {
+	margin-bottom: 30px;
+}
+.footer-nav__label {
+	color: var(--main-white);
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 0;
+	line-height: 140%;
+	margin-bottom: 5px;
+}
+
+.footer-nav__link--big {
+	font-size: 42px;
+	font-weight: 500;
+	color: var(--accent-yellow) !important;
+	text-transform: uppercase;
+	letter-spacing: 0;
+	line-height: 110%;
+}
+
+.footer-nav__link {
+	color: var(--main-white);
+	font-family: 'Montserrat';
+	text-decoration: none;
+	font-size: 20px;
+	font-weight: 500;
+	letter-spacing: 0;
+	line-height: 110%;
+}
+
+.footer-nav__nav-links {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+.footer-nav__column .footer-nav__link:last-child {
+	margin-bottom: 0;
+}
+.footer-nav__nav-link {
+	color: var(--main-white);
+	text-decoration: none;
+	font-size: 16px;
+	font-weight: 500;
+	letter-spacing: 0;
+	line-height: 100%;
+	text-transform: uppercase;
+	transition: all 0.4s ease;
+}
+.footer-nav__nav-link:hover,
+.footer-nav__right .footer-nav__link:hover {
+	color: var(--accent-yellow);
+}
+.footer-nav__right {
+	flex: 1;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 50px 40px;
+	max-width: 810px;
+}
+
+.footer-nav__title {
+	font-size: 16px;
+	margin-bottom: 36px;
+	font-weight: 500;
+	line-height: 100%;
+	letter-spacing: 0;
+	text-transform: uppercase;
+}
+.footer-nav__column {
+	display: flex;
+	flex-direction: column;
+	max-width: 270px;
+}
+.footer-nav__right .footer-nav__link {
+	font-size: 14px;
+	line-height: 140%;
+	letter-spacing: 0;
+	font-weight: 400;
+	margin-bottom: 12px;
+	transition: all 0.4s ease;
+}
+/* Мобильная адаптация */
+@media (max-width: 1024px) {
+	.footer-nav__right {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 768px) {
+	.footer-nav {
+		flex-direction: column;
+	}
+	.footer-nav__right {
+		grid-template-columns: 1fr 1fr;
+		gap: 40px;
+	}
+	.footer-nav__nav-links {
+		margin-bottom: 60px;
+	}
+}
+
+@media (max-width: 480px) {
+	.footer-nav__right {
+		grid-template-columns: 1fr;
+	}
+}
+/* === STICKY SCROLL ДЛЯ "НАШИ РАБОТЫ" === */
+/* Не трогаем твои текущие стили — только добавляем нужное */
+
+/* 1. Делаем sticky-длительность */
+.our-works-pin-wrapper {
+	height: calc(var(--real-vh) * 200); /* 200vh */
+	position: relative;
+}
+
+/* Прилипающая секция */
+.our-works--pinned {
+	position: sticky;
+	top: 0;
+	height: calc(var(--real-vh) * 100); /* 100vh */
+	overflow: hidden;
+	z-index: 1;
+}
+
+/* Футер перекрывает сверху */
+.overlap-footer {
+	position: relative;
+	margin-top: calc(var(--real-vh) * -100); /* -100vh */
+	z-index: 10;
+	background-color: var(--main-green);
+}
+.footer-bottom-line {
+	margin-top: 120px;
+}
+.footer-bottom-line .footer-line img {
+	margin-bottom: 20px;
+}
+.footer-bottom-line-nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.footer-bottom-line-text p {
+	max-width: 920px;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 140%;
+	letter-spacing: 0;
+	color: var(--main-white);
+	margin-bottom: 6px;
+}
+.footer-bottom-line-nav-right {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+.footer-bottom-line-nav-right a {
+	text-decoration: underline;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 140%;
+	letter-spacing: 0;
+	color: var(--main-white);
+	text-transform: uppercase;
+}
+
+/* Menu */
+.bottom-menu {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: calc(100dvh); /* важно: dvh — чтобы на мобилках не прыгало */
+	background: var(--main-green);
+	color: #e6e6e6;
+	transform: translateY(100%);
+	transition: transform 0.55s cubic-bezier(0.19, 1, 0.22, 1);
+	z-index: 998;
+	border-radius: 32px 32px 0 0;
+	padding: 24px 40px 40px;
+	box-sizing: border-box;
+	overflow-y: auto;
+
+	display: flex;
+	flex-direction: column;
+}
+.bottom-menu.active {
+	transform: translateY(0);
+}
+
+/* Полоска-ручка сверху по центру */
+.menu-line {
+	width: 100%;
+	padding-top: 110px;
+	margin-bottom: 20px;
+}
+/* ВСЁ содержимое прижимаем к низу */
+.bottom-menu-inner {
+	margin-top: auto; /* КЛЮЧЕВОЕ СВОЙСТВО! */
+	display: flex;
+	gap: 80px;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	justify-content: space-between;
+}
+/* Левое большое меню */
+.bottom-menu__nav {
+	font-size: 48px;
+	line-height: 1.2;
+	font-weight: 300;
+}
+
+.bottom-menu__nav a {
+	display: block;
+	text-transform: uppercase;
+	text-decoration: none;
+	margin-bottom: 40px;
+	font-weight: 500;
+	font-size: 64px;
+	transition: all 0.4s ease;
+}
+.bottom-menu__nav a:last-child {
+	margin-bottom: 0;
+}
+.bottom-menu__nav a:hover {
+	color: var(--accent-yellow);
+}
+/* Колонки справа */
+.bottom-menu__columns {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: 48px 32px;
+	font-size: 16px;
+}
+.record-menu-inner {
+	margin-top: 140px;
+}
+.record-title {
+	max-width: 510px;
+	margin: 0 auto;
+	font-weight: 500;
+	font-size: 64px;
+	line-height: 110%;
+	letter-spacing: 0;
+	text-transform: uppercase;
+	text-align: center;
+}
+.record-form .phone-form {
+	justify-content: center;
+	display: flex;
+	margin-top: 66px;
+}
+.record-form .phone-form .phone-form__wrapper {
+	margin: 0;
+}
+.record-contacts {
+	margin-top: 60px;
+	display: flex;
+	justify-content: center;
+	gap: 36px;
+	align-items: center;
+}
+.contact-item {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+.contact-item .label {
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 140%;
+	letter-spacing: 0;
+	text-transform: uppercase;
+}
+.contact-item .value {
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 110%;
+	letter-spacing: 0;
+	text-transform: uppercase;
+	transition: all 0.4s ease;
+}
+
+.contact-item .value:hover {
+	color: var(--accent-yellow);
+}
+.contact-item:first-child .value {
+	font-weight: 500;
+	font-size: 32px;
+	line-height: 110%;
+	letter-spacing: 0;
+	text-transform: uppercase;
+	color: var(--accent-yellow);
+	transition: all 0.4s ease;
+}
+.contact-item:first-child .value:hover {
+	color: var(--main-white);
+}
+/* Adaptive */
+@media (max-width: 1400px) {
+	.title {
+		font-size: 58px;
+	}
+}
+@media (max-width: 1220px) {
+	.title {
+		font-size: 48px;
+	}
+}
+@media (max-width: 1140px) {
+	.side-video {
+		display: none;
+	}
+}
+@media (max-width: 990px) {
+	.bottom-menu__nav a,
+	.record-title,
+	.our-works__title,
+	h1 {
+		font-size: 48px;
+	}
+	.slide.open-video .main-video-wrap {
+		width: 536px;
+		height: 338px;
+	}
+	.review-slider {
+		padding: 0 30px;
+	}
+	.footer-bottom-line-nav {
+		flex-direction: column;
+	}
+	.record-title {
+		text-align: left;
+		max-width: none;
+		margin: 0;
+	}
+	.our-works__all {
+		margin-top: 30px;
+	}
+	.hero {
+		height: 140vh;
+	}
+	.hero-video {
+		height: auto;
+	}
+}
+@media (max-width: 860px) {
+	.arrow {
+		top: 38%;
+	}
+	.record-contacts {
+		flex-direction: column;
+		align-items: start;
+	}
+}
+@media (max-width: 720px) {
+	.title,
+	.bottom-menu__nav a,
+	.record-title,
+	.our-works__title,
+	h1 {
+		font-size: 38px;
+	}
+	.slide.open-video .main-video-wrap {
+		width: 436px;
+		height: 278px;
+	}
+}
+@media (max-width: 620px) {
+	.slide.open-video .main-video-wrap {
+		width: 336px;
+		height: 238px;
+	}
+}
+@media (max-width: 522px) {
+	.title,
+	.bottom-menu__nav a,
+	.record-title,
+	.our-works__title,
+	h1 {
+		font-size: 34px;
+	}
+	.slide.open-video .main-video-wrap {
+		width: 236px;
+		height: 178px;
+	}
+	.bottom-menu {
+		padding: 24px 20px 20px;
+	}
+	.our-works__bottom::before {
+		top: 15%;
+	}
+	.our-works__bottom {
+		height: 400px;
+		margin-top: 30px;
+	}
+	.footer {
+		padding: 40px 16px;
+	}
+	.our-works--pinned {
+		padding: 100px 16px;
+	}
+	.hero-video {
+		padding: 0 16px;
+	}
+}
+@media (max-width: 480px) {
+	.title,
+	.bottom-menu__nav a,
+	.our-works__title,
+	h1 {
+		font-size: 26px;
+	}
+	.review-slider {
+		padding: 0 15px;
+	}
+	.prev {
+		left: 20px;
+	}
+	.next {
+		right: 20px;
+	}
+}
