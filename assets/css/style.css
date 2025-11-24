@@ -161,19 +161,17 @@ a {
 	height: 180vh; /* важно: 100vh для SVG + 100vh для видео */
 }
 
-/* SVG — sticky, залипает на top:0 при скролле */
+/* SVG — sticky */
 .hero-title-svg {
 	position: sticky;
 	top: 0;
-	height: 63vh;
+	height: calc(var(--real-vh) * 63); /* вместо 63vh */
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	z-index: 1;
 	pointer-events: none;
-	background: var(
-		--main-green
-	); /* фон, чтобы видео не просвечивало изначально */
+	background: var(--main-green);
 }
 .hero-title-svg img {
 	width: 100%;
@@ -181,29 +179,52 @@ a {
 	height: auto;
 }
 
-/* ВИДЕО — обычный блок в потоке, но с transform для плавного наезда */
+/* ВИДЕО */
 .hero-video {
 	position: absolute;
-	top: 70vh; /* начинается строго под SVG */
+	top: calc(var(--real-vh) * 63); /* стартует ровно под SVG */
 	left: 0;
 	width: 100%;
-	height: 100vh;
+	height: calc(var(--real-vh) * 110);
 	object-fit: cover;
-	z-index: 2; /* выше SVG */
-	padding: 40px;
+	z-index: 2;
 	box-sizing: border-box;
+	padding: 40px;
 	padding-bottom: 0;
 }
 
-/* Контент после */
-.after-hero {
-	position: relative;
-	z-index: 3;
-	min-height: 100vh;
-	background: var(--main-green);
-	color: white;
-	padding: 100px 40px;
-	text-align: center;
+/* === Адаптивные правки для маленьких экранов === */
+@media (max-width: 1024px) {
+	.hero-title-svg {
+		height: calc(var(--real-vh) * 50); /* меньше sticky */
+	}
+	.hero-video {
+		top: calc(var(--real-vh) * 50);
+		height: calc(var(--real-vh) * 100);
+		padding: 20px;
+	}
+}
+
+@media (max-width: 768px) {
+	.hero-title-svg {
+		height: calc(var(--real-vh) * 40); /* ещё меньше */
+	}
+	.hero-video {
+		top: calc(var(--real-vh) * 40);
+		padding: 10px;
+	}
+}
+
+@media (max-width: 480px) {
+	.hero-title-svg {
+		height: calc(
+			var(--real-vh) * 35
+		); /* никто не любит giant-sticky на мобилках */
+	}
+	.hero-video {
+		top: calc(var(--real-vh) * 35);
+		padding: 0;
+	}
 }
 
 /* Review-slider */
@@ -1173,9 +1194,6 @@ a {
 	}
 	.hero {
 		height: 140vh;
-	}
-	.hero-video {
-		height: auto;
 	}
 }
 @media (max-width: 860px) {
