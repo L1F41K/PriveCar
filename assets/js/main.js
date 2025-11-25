@@ -37,6 +37,21 @@ function toggleMenu(btn, menu) {
 toggleMenu(menuBtn, bottomMenu)
 toggleMenu(recordBtn, recordMenu)
 
+// --- ДОБАВЬТЕ ЭТУ ФУНКЦИЮ ПЕРЕД calculateStickyHeight ---
+
+function setRealVh() {
+	// Получаем 1% от реальной высоты вьюпорта
+	const vh = window.innerHeight * 0.01
+	// Устанавливаем его как переменную CSS
+	document.documentElement.style.setProperty('--real-vh', `${vh}px`)
+}
+
+// Запускаем при загрузке и при изменении размера
+setRealVh()
+window.addEventListener('resize', setRealVh)
+
+// --------------------------------------------------------
+
 function calculateStickyHeight() {
 	const wrapper = document.querySelector('.sticky-scroll-wrapper')
 	const target = document.querySelector('.sticky-scroll-target')
@@ -44,14 +59,17 @@ function calculateStickyHeight() {
 
 	if (!wrapper || !target || !grid) return
 
-	// сбрасываем высоту на авто, чтобы получить реальную
+	// Сбрасываем высоту на авто, чтобы получить реальную
 	wrapper.style.height = 'auto'
 
 	requestAnimationFrame(() => {
+		// Используем offsetHeight/scrollHeight для более точных расчетов
 		const contentHeight = grid.scrollHeight
+		// Используем innerHeight для высоты вьюпорта
 		const viewportHeight = window.innerHeight
 
 		// ВАЖНО: sticky должно прокручиваться полностью
+		// Высота wrapper = высота контента + 100% вьюпорта, чтобы обеспечить место для прокрутки
 		wrapper.style.height = contentHeight + viewportHeight + 'px'
 	})
 }
@@ -59,25 +77,16 @@ function calculateStickyHeight() {
 // Считаем после загрузки DOM
 document.addEventListener('DOMContentLoaded', calculateStickyHeight)
 
-// После загрузки всех видео
+// После загрузки всех видео (это корректно)
 document.querySelectorAll('video').forEach(video => {
 	video.addEventListener('loadedmetadata', calculateStickyHeight)
 })
 
-// После загрузки всех изображений
+// После загрузки всех изображений (это корректно)
 window.addEventListener('load', calculateStickyHeight)
 
 // При изменении ширины (потому что grid перестраивается)
-window.addEventListener('resize', calculateStickyHeight)
-
-function setRealVH() {
-	const vh = window.innerHeight * 0.01
-	document.documentElement.style.setProperty('--real-vh', `${vh}px`)
-}
-
-setRealVH()
-window.addEventListener('resize', setRealVH)
-
+// window.addEventListener('resize', calculateStickyHeight) // Уже есть в setRealVh, можно оставить так, но лучше убедиться, что setRealVh вызовется первым
 document.querySelectorAll('.toggle-video-btn').forEach(btn => {
 	btn.addEventListener('click', function (e) {
 		e.preventDefault()
