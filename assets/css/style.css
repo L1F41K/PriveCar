@@ -1284,10 +1284,11 @@ a {
 	/* или можно просто: clip-path: inset(0); и background = цвет фона */
 }
 .uslugi .services-grid {
-	height: auto;
+	/* Занимает всю высоту своего родителя (100vh) */
+	height: 100%;
 }
 .uslugi .service-card {
-	flex-shrink: 0; /* если flex */
+	overflow: hidden;
 }
 .sticky-scroll-wrapper {
 	position: relative;
@@ -1296,9 +1297,15 @@ a {
 .sticky-scroll-target {
 	position: sticky;
 	top: 0;
-	/* ИСПОЛЬЗУЕМ НОВУЮ ПЕРЕМЕННУЮ ДЛЯ КОРРЕКТНОЙ ВЫСОТЫ */
+	/* Используем --real-vh для точной высоты экрана */
 	height: calc(var(--real-vh) * 100);
-	overflow-y: auto;
+
+	/* ВАЖНО: Убираем overflow: hidden/auto, 
+     чтобы не создавать двойной скроллбар */
+	/* НО! Чтобы внутренний контент прокручивался, 
+     мы переложим управление прокруткой на его потомка. */
+
+	overflow: visible;
 }
 
 /* Adaptive */
@@ -1355,6 +1362,11 @@ a {
 	}
 	.uslugi-hero_wrapper {
 		padding: 65px 20px;
+	}
+	.sticky-scroll-target {
+		position: relative !important;
+		height: auto !important;
+		overflow: visible !important;
 	}
 }
 @media (max-width: 860px) {
