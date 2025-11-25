@@ -5,6 +5,79 @@ document.querySelectorAll('.header-btn').forEach(btn => {
 		btn.dataset.state = btn.dataset.state === 'closed' ? 'open' : 'closed'
 	})
 })
+const menuBtn = document.querySelector('.menu-btn')
+const recordBtn = document.getElementById('recordBtn')
+const bottomMenu = document.getElementById('bottomMenu')
+const recordMenu = document.getElementById('recordMenu')
+
+// Универсальная функция
+function toggleMenu(btn, menu) {
+	btn.addEventListener('click', e => {
+		e.preventDefault()
+
+		const isOpen = menu.classList.contains('active')
+
+		// Закрываем другое меню, если открыто
+		if (bottomMenu.classList.contains('active') && menu !== bottomMenu) {
+			bottomMenu.classList.remove('active')
+			menuBtn.dataset.state = 'closed'
+		}
+		if (recordMenu.classList.contains('active') && menu !== recordMenu) {
+			recordMenu.classList.remove('active')
+			recordBtn.dataset.state = 'closed'
+		}
+
+		// Переключаем текущее
+		menu.classList.toggle('active')
+		btn.dataset.state = isOpen ? 'closed' : 'open'
+	})
+}
+
+// Подключаем оба
+toggleMenu(menuBtn, bottomMenu)
+toggleMenu(recordBtn, recordMenu)
+
+function calculateStickyHeight() {
+	const wrapper = document.querySelector('.sticky-scroll-wrapper')
+	const target = document.querySelector('.sticky-scroll-target')
+	const grid = document.querySelector('.services-grid')
+
+	if (!wrapper || !target || !grid) return
+
+	// сбрасываем высоту на авто, чтобы получить реальную
+	wrapper.style.height = 'auto'
+
+	requestAnimationFrame(() => {
+		const contentHeight = grid.scrollHeight
+		const viewportHeight = window.innerHeight
+
+		// ВАЖНО: sticky должно прокручиваться полностью
+		wrapper.style.height = contentHeight + viewportHeight + 'px'
+	})
+}
+
+// Считаем после загрузки DOM
+document.addEventListener('DOMContentLoaded', calculateStickyHeight)
+
+// После загрузки всех видео
+document.querySelectorAll('video').forEach(video => {
+	video.addEventListener('loadedmetadata', calculateStickyHeight)
+})
+
+// После загрузки всех изображений
+window.addEventListener('load', calculateStickyHeight)
+
+// При изменении ширины (потому что grid перестраивается)
+window.addEventListener('resize', calculateStickyHeight)
+
+function setRealVH() {
+	const vh = window.innerHeight * 0.01
+	document.documentElement.style.setProperty('--real-vh', `${vh}px`)
+}
+
+setRealVH()
+window.addEventListener('resize', setRealVH)
+
 document.querySelectorAll('.toggle-video-btn').forEach(btn => {
 	btn.addEventListener('click', function (e) {
 		e.preventDefault()
@@ -93,41 +166,3 @@ slider.addEventListener('click', e => {
 		if (v) v.play()
 	}
 })
-const menuBtn = document.querySelector('.menu-btn')
-const recordBtn = document.getElementById('recordBtn')
-const bottomMenu = document.getElementById('bottomMenu')
-const recordMenu = document.getElementById('recordMenu')
-
-// Универсальная функция
-function toggleMenu(btn, menu) {
-	btn.addEventListener('click', e => {
-		e.preventDefault()
-
-		const isOpen = menu.classList.contains('active')
-
-		// Закрываем другое меню, если открыто
-		if (bottomMenu.classList.contains('active') && menu !== bottomMenu) {
-			bottomMenu.classList.remove('active')
-			menuBtn.dataset.state = 'closed'
-		}
-		if (recordMenu.classList.contains('active') && menu !== recordMenu) {
-			recordMenu.classList.remove('active')
-			recordBtn.dataset.state = 'closed'
-		}
-
-		// Переключаем текущее
-		menu.classList.toggle('active')
-		btn.dataset.state = isOpen ? 'closed' : 'open'
-	})
-}
-
-// Подключаем оба
-toggleMenu(menuBtn, bottomMenu)
-toggleMenu(recordBtn, recordMenu)
-function setRealVH() {
-	const vh = window.innerHeight * 0.01
-	document.documentElement.style.setProperty('--real-vh', `${vh}px`)
-}
-
-setRealVH()
-window.addEventListener('resize', setRealVH)

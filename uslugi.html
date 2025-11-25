@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>PRIVE Car Club</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="assets/css/style.css" />
+	</head>
+	<body>
+		<!-- Полностью прозрачный хедер -->
+		<header class="main-header">
+			<div class="header-line">
+				<a
+					href="#"
+					class="header-btn menu-btn"
+					id="menuBtn"
+					data-state="closed"
+				>
+					<div class="squares menu-squares">
+						<span class="sq"></span><span class="sq"></span>
+						<span class="sq"></span><span class="sq"></span>
+					</div>
+					<span class="btn-text">Меню</span>
+				</a>
+				<div class="logo">
+					<img src="assets/svg/logo.svg" alt="Logo" />
+				</div>
+				<a
+					href="#"
+					class="header-btn record-btn"
+					data-state="closed"
+					id="recordBtn"
+				>
+					<div class="squares record-squares">
+						<span class="sq"></span><span class="sq"></span>
+					</div>
+					<span class="btn-text">Записаться</span>
+				</a>
+			</div>
+		</header>
+
+		<main>
+			<section class="uslugi-hero">
+				<img src="assets/svg/line.svg" alt="" />
+				<div class="uslugi-hero_wrapper">
+					<div class="breadcrumbs">
+						<a href="index.html">ГЛАВНАЯ</a>
+						<span class="separator"></span>
+						<span>НАШИ УСЛУГИ</span>
+					</div>
+					<h1 class="page-title">НАШИ УСЛУГИ</h1>
+				</div>
+				<div class="background-text">
+					<!-- Нижний слой — толстая обводка (твой цвет) -->
+					<span
+						class="stroke-layer"
+						style="--stroke: 1px; --color: rgba(255, 255, 255, 0.1)"
+					>
+						УСЛУГИ
+					</span>
+
+					<!-- Верхний слой — вырезает центр, оставляя только контур -->
+					<span class="fill-layer"> УСЛУГИ </span>
+				</div>
+			</section>
+			<div class="sticky-scroll-wrapper">
+				<section class="services-section uslugi sticky-scroll-target">
+					<div class="services-grid">
+						<!-- Пример карточки -->
+						<a href="#" class="service-card">
+							<video
+								class="service-video"
+								autoplay
+								muted
+								loop
+								playsinline
+								preload="metadata"
+							>
+								<source src="assets/video/2.mp4" type="video/mp4" />
+							</video>
+
+							<div class="service-content">
+								<h3 class="service-title">
+									ДЕТЕЙЛИНГ
+									<span class="service-count">(4)</span>
+								</h3>
+
+								<div class="service-more">
+									<img src="assets/svg/arrow.svg" alt="" class="more-icon" />
+									<span>ПОДРОБНЕЕ</span>
+								</div>
+							</div>
+						</a>
+						<a href="#" class="service-card">
+							<video
+								class="service-video"
+								autoplay
+								muted
+								loop
+								playsinline
+								preload="metadata"
+							>
+								<source src="assets/video/2.mp4" type="video/mp4" />
+							</video>
+
+							<div class="service-content">
+								<h3 class="service-title">
+									ДЕТЕЙЛИНГ
+									<span class="service-count">(4)</span>
+								</h3>
+
+								<div class="service-more">
+									<img src="assets/svg/arrow.svg" alt="" class="more-icon" />
+									<span>ПОДРОБНЕЕ</span>
+								</div>
+							</div>
+						</a>
+						<a href="#" class="service-card">
+							<video
+								class="service-video"
+								autoplay
+								muted
+								loop
+								playsinline
+								preload="metadata"
+							>
+								<source src="assets/video/2.mp4" type="video/mp4" />
+							</video>
+
+							<div class="service-content">
+								<h3 class="service-title">
+									ДЕТЕЙЛИНГ
+									<span class="service-count">(4)</span>
+								</h3>
+
+								<div class="service-more">
+									<img src="assets/svg/arrow.svg" alt="" class="more-icon" />
+									<span>ПОДРОБНЕЕ</span>
+								</div>
+							</div>
+						</a>
+						<a href="#" class="service-card">
+							<video
+								class="service-video"
+								autoplay
+								muted
+								loop
+								playsinline
+								preload="metadata"
+							>
+								<source src="assets/video/2.mp4" type="video/mp4" />
+							</video>
+
+							<div class="service-content">
+								<h3 class="service-title">
+									ДЕТЕЙЛИНГ
+									<span class="service-count">(4)</span>
+								</h3>
+
+								<div class="service-more">
+									<img src="assets/svg/arrow.svg" alt="" class="more-icon" />
+									<span>ПОДРОБНЕЕ</span>
+								</div>
+							</div>
+						</a>
+						<a href="#" class="service-card">
+							<video
+								class="service-video"
+								autoplay
+								muted
+								loop
+								playsinline
+								preload="metadata"
+							>
+								<source src="assets/video/2.mp4" type="video/mp4" />
+							</video>
+
+							<div class="service-content">
+								<h3 class="service-title">
+									ДЕТЕЙЛИНГ
+									<span class="service-count">(4)</span>
+								</h3>
+
+								<div class="service-more">
+									<img src="assets/svg/arrow.svg" alt="" class="more-icon" />
+									<span>ПОДРОБНЕЕ</span>
+								</div>
+							</div>
+						</a>
+						<a href="#" class="service-card">
+							<video
+								class="service-video"
+								autoplay
+								muted
+								loop
+								playsinline
+								preload="metadata"
+							>
+								<source src="assets/video/2.mp4" type="video/mp4" />
+							</video>
+
+							<div class="service-content">
+								<h3 class="service-title">
+									ДЕТЕЙЛИНГ
+									<span class="service-count">(4)</span>
+								</h3>
+
+								<div class="service-more">
+									<img src="assets/svg/arrow.svg" alt="" class="more-icon" />
+									<span>ПОДРОБНЕЕ</span>
+								</div>
+							</div>
+						</a>
+					</div>
+				</section>
+			</div>
+		</main>
+		<footer class="overlap-footer">
+			<div class="footer">
+				<div class="footer-line">
+					<img src="assets/svg/line.svg" alt="" />
+				</div>
+				<div class="footer-title">
+					<h1>
+						записаться к нам — <br />
+						легко!
+					</h1>
+					<form
+						class="phone-form"
+						action="https://ваш-сервер.ru/send.php"
+						method="POST"
+						novalidate
+					>
+						<div class="phone-form__wrapper">
+							<!-- Поле ввода -->
+							<input
+								type="tel"
+								name="phone"
+								placeholder="Введите телефон"
+								class="phone-form__input"
+								required
+								autocomplete="tel"
+							/>
+							<button type="submit" class="phone-form__submit">
+								<img src="assets/svg/buttom.svg" alt="" />
+							</button>
+						</div>
+					</form>
+				</div>
+				<div class="footer-nav">
+					<!-- Левая часть: контакты + нижние ссылки -->
+					<div class="footer-nav__left">
+						<!-- Контакты -->
+						<div class="footer-nav__contacts">
+							<div class="footer-nav__contacts-item">
+								<div class="footer-nav__label">/Email</div>
+								<a
+									href="mailto:hello@privecar.ru"
+									class="footer-nav__link footer-nav__link--big"
+								>
+									HELLO@PRIVECAR
+								</a>
+							</div>
+
+							<div class="footer-nav__contacts-item">
+								<div class="footer-nav__label">/phone</div>
+								<a href="tel:+74951234567" class="footer-nav__link">
+									7 (495) 123-45-67
+								</a>
+							</div>
+
+							<div class="footer-nav__contacts-item">
+								<div class="footer-nav__label">/Адрес</div>
+								<a
+									href="https://yandex.ru/maps/?text=Усачёва+2с1"
+									target="_blank"
+									class="footer-nav__link"
+								>
+									УСАЧЕВА 2С1
+								</a>
+							</div>
+						</div>
+
+						<!-- Нижние ссылки — теперь тоже в левой колонке -->
+						<div class="footer-nav__nav-links">
+							<a href="/" class="footer-nav__nav-link">/Главная</a>
+							<a href="/o-nas" class="footer-nav__nav-link">/О нас</a>
+							<a href="/uslugi" class="footer-nav__nav-link">/Услуги</a>
+							<a href="/kejsy" class="footer-nav__nav-link">/Кейсы</a>
+							<a href="/kontakty" class="footer-nav__nav-link">/Контакты</a>
+						</div>
+					</div>
+
+					<!-- Правая часть: 6 колонок меню -->
+					<div class="footer-nav__right">
+						<div class="footer-nav__column">
+							<div class="footer-nav__title">/Детейлинг</div>
+							<a href="#" class="footer-nav__link">Полировка кузова</a>
+							<a href="#" class="footer-nav__link"
+								>Нанесение керамических составов</a
+							>
+							<a href="#" class="footer-nav__link">Химчистка салона</a>
+							<a href="#" class="footer-nav__link"
+								>Восстановление кожи и деталей</a
+							>
+							<a href="#" class="footer-nav__link"
+								>Устранение вмятин без покраски</a
+							>
+						</div>
+
+						<div class="footer-nav__column">
+							<div class="footer-nav__title">/Тюнинг</div>
+							<a href="#" class="footer-nav__link">Аэродинамические обвесы</a>
+							<a href="#" class="footer-nav__link">Кованые диски</a>
+							<a href="#" class="footer-nav__link">Выхлопные системы</a>
+							<a href="#" class="footer-nav__link">Подвеска</a>
+							<a href="#" class="footer-nav__link">Индивидуальные решения</a>
+						</div>
+
+						<div class="footer-nav__column">
+							<div class="footer-nav__title">/Салон</div>
+							<a href="#" class="footer-nav__link">Пошив салона</a>
+							<a href="#" class="footer-nav__link">Комфортные сиденья</a>
+							<a href="#" class="footer-nav__link">Офис на колёсах</a>
+							<a href="#" class="footer-nav__link">Шумоизоляция</a>
+							<a href="#" class="footer-nav__link">Карбон и звёздное небо</a>
+						</div>
+
+						<div class="footer-nav__column">
+							<div class="footer-nav__title">/Оклейка плёнкой</div>
+							<a href="#" class="footer-nav__link">Броня полиуретаном</a>
+							<a href="#" class="footer-nav__link">Изменение цвета</a>
+							<a href="#" class="footer-nav__link">Дизайн-проекты</a>
+							<a href="#" class="footer-nav__link">Антихром</a>
+							<a href="#" class="footer-nav__link">Оклейка интерьера</a>
+						</div>
+
+						<div class="footer-nav__column">
+							<div class="footer-nav__title">/Сервис</div>
+							<a href="#" class="footer-nav__link">ТО и диагностика</a>
+							<a href="#" class="footer-nav__link">Сервис спорт и спорткаров</a>
+							<a href="#" class="footer-nav__link">Консьерж-сервис</a>
+							<a href="#" class="footer-nav__link">Хранение авто</a>
+						</div>
+
+						<div class="footer-nav__column">
+							<div class="footer-nav__title">/Дооснащение</div>
+							<a href="#" class="footer-nav__link">Доводчики</a>
+							<a href="#" class="footer-nav__link">Бесключевой доступ</a>
+							<a href="#" class="footer-nav__link">Видеожалюзи пороги</a>
+							<a href="#" class="footer-nav__link">Русификация</a>
+						</div>
+					</div>
+				</div>
+				<div class="footer-bottom-line">
+					<div class="footer-line">
+						<img src="assets/svg/line.svg" alt="" />
+					</div>
+					<div class="footer-bottom-line-nav">
+						<div class="footer-bottom-line-nav-left">
+							<div class="footer-bottom-line-text">
+								<p>© 2025 PRIVECAR</p>
+								<p>
+									Данный сайт носит исключительно информационный характер, и ни
+									при каких условиях, информационные материалы и цены,
+									размещенные на сайте, не являются публичной офертой,
+									определяемой положениями Статьи 437 Гражданского кодекса РФ.
+								</p>
+							</div>
+						</div>
+						<div class="footer-bottom-line-nav-right">
+							<a href="#">политика конфиденциальности</a>
+							<a href="#">пользовательское соглашение</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<div class="bottom-menu" id="bottomMenu">
+			<img src="assets/svg/line.svg" class="menu-line" alt="" />
+			<div class="bottom-menu-inner">
+				<nav class="bottom-menu__nav">
+					<a href="index.html">/Главная</a>
+					<a href="#">/О нас</a>
+					<a href="uslugi.html">/Услуги</a>
+					<a href="#">/Кейсы</a>
+					<a href="#">/Контакты</a>
+				</nav>
+
+				<div class="footer-nav__right">
+					<div class="footer-nav__column">
+						<div class="footer-nav__title">/Детейлинг</div>
+						<a href="#" class="footer-nav__link">Полировка кузова</a>
+						<a href="#" class="footer-nav__link"
+							>Нанесение керамических составов</a
+						>
+						<a href="#" class="footer-nav__link">Химчистка салона</a>
+						<a href="#" class="footer-nav__link"
+							>Восстановление кожи и деталей</a
+						>
+						<a href="#" class="footer-nav__link"
+							>Устранение вмятин без покраски</a
+						>
+					</div>
+
+					<div class="footer-nav__column">
+						<div class="footer-nav__title">/Тюнинг</div>
+						<a href="#" class="footer-nav__link">Аэродинамические обвесы</a>
+						<a href="#" class="footer-nav__link">Кованые диски</a>
+						<a href="#" class="footer-nav__link">Выхлопные системы</a>
+						<a href="#" class="footer-nav__link">Подвеска</a>
+						<a href="#" class="footer-nav__link">Индивидуальные решения</a>
+					</div>
+
+					<div class="footer-nav__column">
+						<div class="footer-nav__title">/Салон</div>
+						<a href="#" class="footer-nav__link">Пошив салона</a>
+						<a href="#" class="footer-nav__link">Комфортные сиденья</a>
+						<a href="#" class="footer-nav__link">Офис на колёсах</a>
+						<a href="#" class="footer-nav__link">Шумоизоляция</a>
+						<a href="#" class="footer-nav__link">Карбон и звёздное небо</a>
+					</div>
+
+					<div class="footer-nav__column">
+						<div class="footer-nav__title">/Оклейка плёнкой</div>
+						<a href="#" class="footer-nav__link">Броня полиуретаном</a>
+						<a href="#" class="footer-nav__link">Изменение цвета</a>
+						<a href="#" class="footer-nav__link">Дизайн-проекты</a>
+						<a href="#" class="footer-nav__link">Антихром</a>
+						<a href="#" class="footer-nav__link">Оклейка интерьера</a>
+					</div>
+
+					<div class="footer-nav__column">
+						<div class="footer-nav__title">/Сервис</div>
+						<a href="#" class="footer-nav__link">ТО и диагностика</a>
+						<a href="#" class="footer-nav__link">Сервис спорт и спорткаров</a>
+						<a href="#" class="footer-nav__link">Консьерж-сервис</a>
+						<a href="#" class="footer-nav__link">Хранение авто</a>
+					</div>
+
+					<div class="footer-nav__column">
+						<div class="footer-nav__title">/Дооснащение</div>
+						<a href="#" class="footer-nav__link">Доводчики</a>
+						<a href="#" class="footer-nav__link">Бесключевой доступ</a>
+						<a href="#" class="footer-nav__link">Видеожалюзи пороги</a>
+						<a href="#" class="footer-nav__link">Русификация</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bottom-menu record-menu" id="recordMenu">
+			<img src="assets/svg/line.svg" class="menu-line" alt="" />
+
+			<div class="record-menu-inner">
+				<div class="record-form">
+					<h1 class="record-title">Записаться к нам — легко!</h1>
+
+					<form
+						class="phone-form"
+						action="https://ваш-сервер.ru/send.php"
+						method="POST"
+						novalidate
+					>
+						<div class="phone-form__wrapper">
+							<!-- Поле ввода -->
+							<input
+								type="tel"
+								name="phone"
+								placeholder="Введите телефон"
+								class="phone-form__input"
+								required
+								autocomplete="tel"
+							/>
+							<button type="submit" class="phone-form__submit">
+								<img src="assets/svg/buttom.svg" alt="" />
+							</button>
+						</div>
+					</form>
+				</div>
+
+				<div class="record-contacts">
+					<a href="mailto:hello@privecar.ru" class="contact-item">
+						<span class="label">/Email</span>
+						<span class="value">hello@privecar.ru</span>
+					</a>
+					<a href="tel:+74951234567" class="contact-item">
+						<span class="label">/Phone</span>
+						<span class="value">7 (495) 123-45-67</span>
+					</a>
+					<div class="contact-item">
+						<span class="label">/Адрес</span>
+						<span class="value">Усачёва 2С1</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="assets/js/main.js"></script>
+	</body>
+</html>

@@ -1036,6 +1036,20 @@ a {
 	z-index: 10;
 	background-color: var(--main-green);
 }
+/* Родитель, который создаёт длинный прокручиваемый контейнер */
+.sticky-scroll-wrapper {
+	position: relative;
+	height: auto; /* будет пересчитано JS */
+}
+
+/* Прилипающий блок */
+.sticky-scroll-target {
+	position: sticky;
+	top: 0;
+	height: 100vh;
+	overflow: hidden;
+	will-change: transform;
+}
 .footer-bottom-line {
 	margin-top: 120px;
 }
@@ -1203,10 +1217,109 @@ a {
 .contact-item:first-child .value:hover {
 	color: var(--main-white);
 }
+/* Uslugi */
+.uslugi-hero {
+	margin-top: 120px;
+	position: relative;
+	overflow: hidden;
+}
+.uslugi-hero_wrapper {
+	padding: 140px 40px;
+	position: relative; /* добавь только эту строку */
+	z-index: 2; /* чтобы контент был выше фона */
+}
+/* --- Декоративная линия (Если это одна линия) --- */
+/* Если line.svg - это две линии, как на исходном изображении, 
+   лучше убрать псевдоэлементы и стилизовать сам img */
+.uslugi-hero > img {
+	width: 100%;
+}
+
+/* --- Хлебные крошки --- */
+
+.breadcrumbs {
+	display: flex;
+	align-items: center;
+	font-size: 12px; /* Уменьшаем размер на мобильных */
+	line-height: 140%;
+	margin-bottom: 30px;
+}
+
+.breadcrumbs a,
+.breadcrumbs span {
+	color: var(--main-white);
+	text-decoration: none;
+	text-transform: uppercase;
+	white-space: nowrap; /* Чтобы не переносились на маленьких экранах */
+}
+.breadcrumbs a {
+	color: var(--accent-yellow);
+}
+.breadcrumbs .separator {
+	display: block;
+	width: 5px;
+	height: 5px;
+	background-color: var(--main-white);
+	margin: 0 8px; /* Немного уменьшаем отступ */
+}
+
+/* --- Фоновый текст "УСЛУГИ" --- */
+.background-text {
+	position: absolute;
+	top: 60%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	pointer-events: none;
+	line-height: 110%;
+	font-size: 300px;
+	font-weight: 500;
+	font-family: 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	z-index: 0; /* это основное */
+	pointer-events: none;
+}
+
+.stroke-layer {
+	position: absolute;
+	inset: 0;
+	color: transparent;
+	-webkit-text-stroke: var(--stroke) var(--color);
+	text-stroke: var(--stroke) var(--color);
+}
+
+.fill-layer {
+	position: relative;
+	color: var(--main-green); /* точный цвет твоего фона */
+	padding: 0 var(--stroke); /* важно! чтобы не обрезало края */
+	clip-path: inset(0 round calc(var(--stroke) - 1px));
+	/* или можно просто: clip-path: inset(0); и background = цвет фона */
+}
+.uslugi .services-grid {
+	height: auto;
+}
+.uslugi .service-card {
+	flex-shrink: 0; /* если flex */
+}
+.sticky-scroll-wrapper {
+	position: relative;
+}
+
+.sticky-scroll-target {
+	position: sticky;
+	top: 0;
+	height: 100vh;
+	overflow-y: auto;
+}
+
 /* Adaptive */
 @media (max-width: 1400px) {
 	.title {
 		font-size: 58px;
+	}
+}
+@media (max-width: 1270px) {
+	.background-text {
+		font-size: 250px;
 	}
 }
 @media (max-width: 1220px) {
@@ -1217,6 +1330,9 @@ a {
 @media (max-width: 1140px) {
 	.side-video {
 		display: none;
+	}
+	.background-text {
+		font-size: 220px;
 	}
 }
 @media (max-width: 990px) {
@@ -1244,6 +1360,12 @@ a {
 	.our-works__all {
 		margin-top: 30px;
 	}
+	.background-text {
+		font-size: 200px;
+	}
+	.uslugi-hero_wrapper {
+		padding: 65px 20px;
+	}
 }
 @media (max-width: 860px) {
 	.arrow {
@@ -1252,6 +1374,9 @@ a {
 	.record-contacts {
 		flex-direction: column;
 		align-items: start;
+	}
+	.background-text {
+		font-size: 170px;
 	}
 }
 @media (max-width: 720px) {
@@ -1265,6 +1390,9 @@ a {
 	.slide.open-video .main-video-wrap {
 		width: 436px;
 		height: 278px;
+	}
+	.background-text {
+		font-size: 140px;
 	}
 }
 @media (max-width: 620px) {
@@ -1280,6 +1408,10 @@ a {
 	}
 	.our-works__title {
 		margin-bottom: 30px;
+	}
+	.background-text {
+		font-size: 110px;
+		top: 70%;
 	}
 }
 @media (max-width: 522px) {
@@ -1316,6 +1448,10 @@ a {
 	.service-title {
 		font-size: 24px;
 	}
+	.our-works-pin-wrapper .uslugi {
+		margin-top: 0;
+		padding-top: 0;
+	}
 }
 @media (max-width: 480px) {
 	.title,
@@ -1335,5 +1471,8 @@ a {
 	}
 	.service-title {
 		font-size: 20px;
+	}
+	.background-text {
+		font-size: 88px;
 	}
 }
