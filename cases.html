@@ -60,176 +60,292 @@
 					<div class="breadcrumbs">
 						<a href="index.html">ГЛАВНАЯ</a>
 						<span class="separator"></span>
-						<span>НАШИ УСЛУГИ</span>
+						<a href="uslugi.html">кейсы</a>
 					</div>
-					<h1 class="page-title">НАШИ УСЛУГИ</h1>
+					<h1 class="page-title">кейсы</h1>
 				</div>
-				<div class="background-text">
+				<div class="background-text var2">
 					<!-- Нижний слой — толстая обводка (твой цвет) -->
 					<span
 						class="stroke-layer"
 						style="--stroke: 1px; --color: rgba(255, 255, 255, 0.1)"
 					>
-						УСЛУГИ
+						кейсы
 					</span>
 
 					<!-- Верхний слой — вырезает центр, оставляя только контур -->
-					<span class="fill-layer"> УСЛУГИ </span>
+					<span class="fill-layer"> кейсы </span>
 				</div>
 			</section>
-			<div class="sticky-scroll-wrapper">
-				<section class="services-section uslugi sticky-scroll-target">
-					<div class="services-grid">
-						<!-- Пример карточки -->
-						<a href="usluga_main.html" class="service-card">
-							<video
-								class="service-video"
-								autoplay
-								muted
-								loop
-								playsinline
-								preload="metadata"
-							>
-								<source src="assets/video/2.mp4" type="video/mp4" />
-							</video>
+			<section class="cases-section">
+				<!-- Главные вкладки -->
+				<div class="cases-tabs">
+					<button class="cases-tab active" data-filter="all">
+						<p>ВСЕ АВТО</p>
+						<span> ↓</span>
+					</button>
+					<button class="cases-tab" data-filter="services">
+						<p>ВИДЫ УСЛУГ</p>
+						<span> ↓</span>
+					</button>
+				</div>
 
-							<div class="service-content">
-								<h3 class="service-title">
-									ДЕТЕЙЛИНГ
-									<span class="service-count">(4)</span>
-								</h3>
-
-								<div class="service-more">
-									<img src="assets/svg/arrow.svg" alt="" class="more-icon" />
-									<span>ПОДРОБНЕЕ</span>
-								</div>
-							</div>
-						</a>
-						<a href="usluga_main.html" class="service-card">
-							<video
-								class="service-video"
-								autoplay
-								muted
-								loop
-								playsinline
-								preload="metadata"
-							>
-								<source src="assets/video/2.mp4" type="video/mp4" />
-							</video>
-
-							<div class="service-content">
-								<h3 class="service-title">
-									ДЕТЕЙЛИНГ
-									<span class="service-count">(4)</span>
-								</h3>
-
-								<div class="service-more">
-									<img src="assets/svg/arrow.svg" alt="" class="more-icon" />
-									<span>ПОДРОБНЕЕ</span>
-								</div>
-							</div>
-						</a>
-						<a href="usluga_main.html" class="service-card">
-							<video
-								class="service-video"
-								autoplay
-								muted
-								loop
-								playsinline
-								preload="metadata"
-							>
-								<source src="assets/video/2.mp4" type="video/mp4" />
-							</video>
-
-							<div class="service-content">
-								<h3 class="service-title">
-									ДЕТЕЙЛИНГ
-									<span class="service-count">(4)</span>
-								</h3>
-
-								<div class="service-more">
-									<img src="assets/svg/arrow.svg" alt="" class="more-icon" />
-									<span>ПОДРОБНЕЕ</span>
-								</div>
-							</div>
-						</a>
-						<a href="usluga_main.html" class="service-card">
-							<video
-								class="service-video"
-								autoplay
-								muted
-								loop
-								playsinline
-								preload="metadata"
-							>
-								<source src="assets/video/2.mp4" type="video/mp4" />
-							</video>
-
-							<div class="service-content">
-								<h3 class="service-title">
-									ДЕТЕЙЛИНГ
-									<span class="service-count">(4)</span>
-								</h3>
-
-								<div class="service-more">
-									<img src="assets/svg/arrow.svg" alt="" class="more-icon" />
-									<span>ПОДРОБНЕЕ</span>
-								</div>
-							</div>
-						</a>
-						<a href="usluga_main.html" class="service-card">
-							<video
-								class="service-video"
-								autoplay
-								muted
-								loop
-								playsinline
-								preload="metadata"
-							>
-								<source src="assets/video/2.mp4" type="video/mp4" />
-							</video>
-
-							<div class="service-content">
-								<h3 class="service-title">
-									ДЕТЕЙЛИНГ
-									<span class="service-count">(4)</span>
-								</h3>
-
-								<div class="service-more">
-									<img src="assets/svg/arrow.svg" alt="" class="more-icon" />
-									<span>ПОДРОБНЕЕ</span>
-								</div>
-							</div>
-						</a>
-						<a href="usluga_main.html" class="service-card">
-							<video
-								class="service-video"
-								autoplay
-								muted
-								loop
-								playsinline
-								preload="metadata"
-							>
-								<source src="assets/video/2.mp4" type="video/mp4" />
-							</video>
-
-							<div class="service-content">
-								<h3 class="service-title">
-									ДЕТЕЙЛИНГ
-									<span class="service-count">(4)</span>
-								</h3>
-
-								<div class="service-more">
-									<img src="assets/svg/arrow.svg" alt="" class="more-icon" />
-									<span>ПОДРОБНЕЕ</span>
-								</div>
-							</div>
-						</a>
+				<!-- Подфильтры -->
+				<div class="subfilters-wrapper" id="subfiltersWrapper">
+					<div class="subfilters-set" data-for="all">
+						<div class="subfilters-container">
+							<button class="subfilter-btn active" data-brand="all">ВСЕ</button>
+							<button class="subfilter-btn" data-brand="aston-martin">
+								ASTON MARTIN
+							</button>
+							<button class="subfilter-btn" data-brand="audi-etron">
+								AUDI E-TRON
+							</button>
+							<button class="subfilter-btn" data-brand="audi-r8">
+								AUDI R8
+							</button>
+							<button class="subfilter-btn" data-brand="audi-rs7">
+								AUDI RS7
+							</button>
+							<button class="subfilter-btn" data-brand="porsche">
+								PORSCHE
+							</button>
+							<button class="subfilter-btn" data-brand="ferrari">
+								FERRARI
+							</button>
+						</div>
 					</div>
-				</section>
-			</div>
+
+					<div class="subfilters-set" data-for="services">
+						<div class="subfilters-container">
+							<button class="subfilter-btn active" data-service="all">
+								ВСЕ УСЛУГИ
+							</button>
+							<button class="subfilter-btn" data-service="ppf">
+								ОКЛЕЙКА ПЛЁНКОЙ
+							</button>
+							<button class="subfilter-btn" data-service="ceramic">
+								КЕРАМИКА
+							</button>
+							<button class="subfilter-btn" data-service="tinting">
+								ТОНИРОВКА
+							</button>
+							<button class="subfilter-btn" data-service="detailing">
+								ДЕТЕЙЛИНГ
+							</button>
+							<button class="subfilter-btn" data-service="antichrom">
+								АНТИХРОМ
+							</button>
+						</div>
+					</div>
+				</div>
+				<div id="allCards" style="display: none">
+					<!-- Пример: 25 карточек — будет 3 страницы (12 + 12 + 1) -->
+					<a href="cases/audi-r8-2025.html" class="card-link">
+						<div class="card" data-category="all" data-brand="audi-r8">
+							<img
+								src="assets/img/car10.png"
+								alt="Audi R8 — Полная оклейка SunTek PPF"
+								loading="lazy"
+							/>
+							<p class="card-text">
+								Audi R8 — Полная оклейка SunTek PPF + тонировка
+							</p>
+						</div>
+					</a>
+
+					<a href="cases/audi-r8-2025.html" class="card-link">
+						<div class="card" data-category="all" data-brand="audi-rs7">
+							<img
+								src="assets/img/car8.png"
+								alt="Audi R8 — Полная оклейка SunTek PPF"
+								loading="lazy"
+							/>
+							<p class="card-text">
+								Audi R7 — Полная оклейка SunTek PPF + тонировка
+							</p>
+						</div>
+					</a>
+					<a href="cases/audi-r8-2025.html" class="card-link">
+						<div class="card" data-category="all" data-brand="audi-r8">
+							<img
+								src="assets/img/car10.png"
+								alt="Audi R8 — Полная оклейка SunTek PPF"
+								loading="lazy"
+							/>
+							<p class="card-text">
+								Audi R8 — Полная оклейка SunTek PPF + тонировка
+							</p>
+						</div>
+					</a>
+
+					<a href="cases/audi-r8-2025.html" class="card-link">
+						<div class="card" data-category="all" data-brand="audi-rs7">
+							<img
+								src="assets/img/car8.png"
+								alt="Audi R8 — Полная оклейка SunTek PPF"
+								loading="lazy"
+							/>
+							<p class="card-text">
+								Audi R7 — Полная оклейка SunTek PPF + тонировка
+							</p>
+						</div>
+					</a>
+					<a href="cases/audi-r8-2025.html" class="card-link">
+						<div class="card" data-category="all" data-brand="audi-r8">
+							<img
+								src="assets/img/car10.png"
+								alt="Audi R8 — Полная оклейка SunTek PPF"
+								loading="lazy"
+							/>
+							<p class="card-text">
+								Audi R8 — Полная оклейка SunTek PPF + тонировка
+							</p>
+						</div>
+					</a>
+
+					<a href="cases/audi-r8-2025.html" class="card-link">
+						<div class="card" data-category="all" data-brand="audi-rs7">
+							<img
+								src="assets/img/car8.png"
+								alt="Audi R8 — Полная оклейка SunTek PPF"
+								loading="lazy"
+							/>
+							<p class="card-text">
+								Audi R7 — Полная оклейка SunTek PPF + тонировка
+							</p>
+						</div>
+					</a>
+					<a href="cases/audi-r8-2025.html" class="card-link">
+						<div class="card" data-category="all" data-brand="audi-r8">
+							<img
+								src="assets/img/car10.png"
+								alt="Audi R8 — Полная оклейка SunTek PPF"
+								loading="lazy"
+							/>
+							<p class="card-text">
+								Audi R8 — Полная оклейка SunTek PPF + тонировка
+							</p>
+						</div>
+					</a>
+
+					<a href="cases/audi-r8-2025.html" class="card-link">
+						<div class="card" data-category="all" data-brand="audi-rs7">
+							<img
+								src="assets/img/car8.png"
+								alt="Audi R8 — Полная оклейка SunTek PPF"
+								loading="lazy"
+							/>
+							<p class="card-text">
+								Audi R7 — Полная оклейка SunTek PPF + тонировка
+							</p>
+						</div>
+					</a>
+					<a href="cases/audi-r8-2025.html" class="card-link">
+						<div class="card" data-category="all" data-brand="audi-r8">
+							<img
+								src="assets/img/car10.png"
+								alt="Audi R8 — Полная оклейка SunTek PPF"
+								loading="lazy"
+							/>
+							<p class="card-text">
+								Audi R8 — Полная оклейка SunTek PPF + тонировка
+							</p>
+						</div>
+					</a>
+
+					<a href="cases/audi-r8-2025.html" class="card-link">
+						<div class="card" data-category="all" data-brand="audi-rs7">
+							<img
+								src="assets/img/car8.png"
+								alt="Audi R8 — Полная оклейка SunTek PPF"
+								loading="lazy"
+							/>
+							<p class="card-text">
+								Audi R7 — Полная оклейка SunTek PPF + тонировка
+							</p>
+						</div>
+					</a>
+					<a href="cases/audi-r8-2025.html" class="card-link">
+						<div class="card" data-category="all" data-brand="audi-r8">
+							<img
+								src="assets/img/car10.png"
+								alt="Audi R8 — Полная оклейка SunTek PPF"
+								loading="lazy"
+							/>
+							<p class="card-text">
+								Audi R8 — Полная оклейка SunTek PPF + тонировка
+							</p>
+						</div>
+					</a>
+
+					<a href="cases/audi-r8-2025.html" class="card-link">
+						<div class="card" data-category="all" data-brand="audi-rs7">
+							<img
+								src="assets/img/car8.png"
+								alt="Audi R8 — Полная оклейка SunTek PPF"
+								loading="lazy"
+							/>
+							<p class="card-text">
+								Audi R7 — Полная оклейка SunTek PPF + тонировка
+							</p>
+						</div>
+					</a>
+					<a href="cases/audi-r8-2025.html" class="card-link">
+						<div class="card" data-category="all" data-brand="audi-r8">
+							<img
+								src="assets/img/car10.png"
+								alt="Audi R8 — Полная оклейка SunTek PPF"
+								loading="lazy"
+							/>
+							<p class="card-text">
+								Audi R8 — Полная оклейка SunTek PPF + тонировка
+							</p>
+						</div>
+					</a>
+
+					<a href="cases/audi-r8-2025.html" class="card-link">
+						<div class="card" data-category="all" data-brand="audi-rs7">
+							<img
+								src="assets/img/car8.png"
+								alt="Audi R8 — Полная оклейка SunTek PPF"
+								loading="lazy"
+							/>
+							<p class="card-text">
+								Audi R7 — Полная оклейка SunTek PPF + тонировка
+							</p>
+						</div>
+					</a>
+					<a href="cases/audi-r8-2025.html" class="card-link">
+						<div class="card" data-category="services" data-service="ppf">
+							<img
+								src="assets/img/car4.png"
+								alt="Audi R8 — Полная оклейка SunTek PPF"
+								loading="lazy"
+							/>
+							<p class="card-text">
+								Audi R74 — Полная оклейка SunTek PPF + тонировка
+							</p>
+						</div>
+					</a>
+					<!-- …и так далее, хоть 200 штук … -->
+				</div>
+				<!-- Все карточки в одном скрытом контейнере (это важно!) -->
+				<div id="pagesContainer">
+					<!-- сюда JS вставит все страницы -->
+				</div>
+
+				<!-- Слайдер (сюда JS будет вставлять страницы) -->
+				<div class="slider-container">
+					<div class="slider-wrapper" id="sliderWrapper">
+						<!-- страницы создаются автоматически -->
+					</div>
+				</div>
+
+				<div class="slider-nav" id="sliderNav"></div>
+			</section>
 		</main>
-		<footer class="overlap-footer">
+		<footer class="">
 			<div class="footer">
 				<div class="footer-line">
 					<img src="assets/svg/line.svg" alt="" />
@@ -508,6 +624,130 @@
 				</div>
 			</div>
 		</div>
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				const tabs = document.querySelectorAll('.cases-tab')
+				const subBtns = document.querySelectorAll('.subfilter-btn')
+				const allLinks = document.querySelectorAll('#allCards > a') // ← ИЩЕМ ССЫЛКИ, а не .card!
+				const pagesContainer = document.getElementById('pagesContainer')
+				const nav = document.getElementById('sliderNav')
+				const subSets = document.querySelectorAll('.subfilters-set')
+
+				let activeTab = 'all'
+				let activeSub = 'all'
+				const PER_PAGE = 12
+
+				const buildPages = () => {
+					pagesContainer.innerHTML = ''
+					nav.innerHTML = ''
+
+					// Фильтруем по ссылкам
+					const filtered = Array.from(allLinks).filter(link => {
+						const card = link.querySelector('.card')
+						const cat = card.dataset.category
+
+						if (cat !== activeTab) return false
+
+						if (activeTab === 'all') {
+							return activeSub === 'all' || card.dataset.brand === activeSub
+						} else {
+							return activeSub === 'all' || card.dataset.service === activeSub
+						}
+					})
+
+					if (filtered.length === 0) {
+						pagesContainer.innerHTML =
+							'<div class="cases-page active"><div class="cards-grid"><p style="grid-column:1/-1;text-align:center;color:var(--main-white);padding:100px 0;font-size:18px;">Нет работ в этой категории</p></div></div>'
+						return
+					}
+
+					const totalPages = Math.ceil(filtered.length / PER_PAGE)
+
+					for (let i = 0; i < totalPages; i++) {
+						const page = document.createElement('div')
+						page.className = 'cases-page'
+						if (i === 0) page.classList.add('active')
+
+						const grid = document.createElement('div')
+						grid.className = 'cards-grid'
+
+						const start = i * PER_PAGE
+						const end = Math.min(start + PER_PAGE, filtered.length)
+
+						for (let j = start; j < end; j++) {
+							grid.appendChild(filtered[j].cloneNode(true)) // клонируем ВСЮ ссылку с карточкой
+						}
+
+						page.appendChild(grid)
+						pagesContainer.appendChild(page)
+					}
+
+					// Пагинация
+					for (let i = 0; i < totalPages; i++) {
+						const btn = document.createElement('button')
+						btn.className = 'slider-nav-btn'
+						btn.textContent = i + 1
+						if (i === 0) btn.classList.add('active')
+						btn.addEventListener('click', () => showPage(i))
+						nav.appendChild(btn)
+					}
+
+					showPage(0)
+				}
+
+				const showPage = index => {
+					document.querySelectorAll('.cases-page').forEach((p, i) => {
+						p.classList.toggle('active', i === index)
+					})
+					document.querySelectorAll('.slider-nav-btn').forEach((b, i) => {
+						b.classList.toggle('active', i === index)
+					})
+				}
+
+				// Вкладки
+				tabs.forEach(tab => {
+					tab.addEventListener('click', () => {
+						tabs.forEach(t => t.classList.remove('active'))
+						tab.classList.add('active')
+						activeTab = tab.dataset.filter
+						activeSub = 'all'
+
+						subSets.forEach(set =>
+							set.classList.toggle('active', set.dataset.for === activeTab)
+						)
+						subBtns.forEach(b => b.classList.remove('active'))
+						const allBtn = document.querySelector(
+							`.subfilters-set[data-for="${activeTab}"] .subfilter-btn:first-child`
+						)
+						if (allBtn) allBtn.classList.add('active')
+
+						buildPages()
+					})
+				})
+
+				// Подфильтры
+				subBtns.forEach(btn => {
+					btn.addEventListener('click', () => {
+						const set = btn.closest('.subfilters-set')
+						set
+							.querySelectorAll('.subfilter-btn')
+							.forEach(b => b.classList.remove('active'))
+						btn.classList.add('active')
+
+						const key = activeTab === 'all' ? 'brand' : 'service'
+						activeSub = btn.dataset[key] || 'all'
+
+						buildPages()
+					})
+				})
+
+				// Запуск
+				subSets.forEach(set =>
+					set.classList.toggle('active', set.dataset.for === 'all')
+				)
+				buildPages()
+			})
+		</script>
 		<script src="assets/js/main.js"></script>
 	</body>
 </html>
