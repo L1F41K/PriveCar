@@ -57,15 +57,16 @@ function calculateStickyHeight() {
 	wrapper.style.height = 'auto'
 
 	requestAnimationFrame(() => {
-		const contentHeight = grid.scrollHeight
+		// !!! Используем offsetHeight — стабильная величина
+		const contentHeight = grid.offsetHeight
 
-		// ✔ БЕРЁМ СТАБИЛЬНУЮ ВЫСОТУ ВЬЮПОРТА ЧЕРЕЗ real-vh
+		// стабильная высота viewport через real-vh
 		const realVh = parseFloat(
 			getComputedStyle(document.documentElement).getPropertyValue('--real-vh')
 		)
-		const viewportHeight = realVh * 100 // 100vh
+		const viewportHeight = realVh * 100 // = 100vh
 
-		// устанавливаем итоговую высоту для скролла
+		// итоговая высота для скролла
 		wrapper.style.height = contentHeight + viewportHeight + 'px'
 	})
 }
@@ -85,6 +86,15 @@ window.addEventListener('load', calculateStickyHeight)
 
 // При изменении ширины
 window.addEventListener('resize', calculateStickyHeight)
+
+// --- ПЕРЕХОД МЕЖДУ GRID и BLOCK НА МОБИЛКЕ ---
+// Когда медиа-запрос меняет дисплей, надо пересчитать
+const mq = window.matchMedia('(max-width: 768px)')
+
+mq.addEventListener('change', () => {
+	// Небольшая задержка, чтобы CSS успел перестроиться
+	setTimeout(calculateStickyHeight, 50)
+})
 
 document.querySelectorAll('.toggle-video-btn').forEach(btn => {
 	btn.addEventListener('click', function (e) {
