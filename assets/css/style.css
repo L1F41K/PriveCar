@@ -27,6 +27,37 @@ h1 {
 	text-transform: uppercase;
 	color: var(--main-white);
 }
+h2 {
+	font-weight: 500;
+	font-size: 48px;
+	line-height: 110%;
+	letter-spacing: 0;
+	text-transform: uppercase;
+	color: var(--main-white);
+}
+h4 {
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 110%;
+	letter-spacing: 0;
+	text-transform: uppercase;
+	color: var(--main-white);
+}
+.text-mini {
+	color: var(--accent-yellow);
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 140%;
+	letter-spacing: 0;
+	text-transform: uppercase;
+	text-align: center;
+}
+.text-small {
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 140%;
+	letter-spacing: 0;
+}
 a {
 	text-decoration: none;
 	color: var(--main-white);
@@ -615,7 +646,7 @@ a {
 .pin-wrapper {
 	position: relative;
 	z-index: 1;
-	height: calc(var(--real-vh) * 200);
+	height: calc(var(--real-vh) * 210);
 }
 
 .pinned-section {
@@ -1232,6 +1263,7 @@ a {
 	font-size: 12px; /* Уменьшаем размер на мобильных */
 	line-height: 140%;
 	margin-bottom: 30px;
+	flex-wrap: wrap;
 }
 
 .breadcrumbs a,
@@ -1267,7 +1299,9 @@ a {
 	z-index: 0; /* это основное */
 	pointer-events: none;
 }
-
+.background-text.var2 {
+	font-size: 222px;
+}
 .stroke-layer {
 	position: absolute;
 	inset: 0;
@@ -1308,10 +1342,561 @@ a {
 	overflow: visible;
 }
 
+/* Usluga_main */
+.usluga-img {
+	padding: 0 40px;
+}
+.usluga-img img {
+	width: 100%;
+}
+.what_we_doing {
+	padding: 120px 40px;
+}
+.what_we_doing-line {
+	margin-bottom: 120px;
+}
+.what_we_doing-line img {
+	width: 100%;
+}
+.what_we_doing-services-container {
+	position: relative;
+	max-width: 1920px;
+	margin: 0 auto;
+	padding-bottom: 40px;
+}
+
+/* Фоновое изображение — подставишь своё */
+.what_we_doing-services-container::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0px; /* регулируй, насколько выпирает */
+	height: 300px; /* высота видимой части фона */
+	background: url('/assets/svg/lines.svg') center bottom / cover no-repeat;
+	z-index: 1;
+	pointer-events: none;
+}
+
+/* === Адаптивная сетка карточек === */
+.what_we_doing-cards-wrapper {
+	margin-top: 80px;
+	position: relative;
+	z-index: 2;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 30px;
+}
+.what_we_doing-card {
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.what_we_doing-card__image {
+	width: 100%;
+	height: 312px;
+	object-fit: cover;
+	object-position: center;
+	flex-shrink: 0;
+	display: block;
+}
+
+.what_we_doing-card__content {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.what_we_doing-card__title {
+	font-size: 32px;
+	font-weight: 500;
+	line-height: 110%;
+	text-transform: uppercase;
+	margin: 20px 0;
+}
+
+.what_we_doing-card__text {
+	font-size: 14px;
+	line-height: 140%;
+	font-weight: 400;
+	margin-bottom: 20px;
+}
+
+.what_we_doing-card__button {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	color: var(--accent-yellow);
+	font-size: 12px;
+	font-weight: 400;
+	text-decoration: none;
+	line-height: 140%;
+	text-transform: uppercase;
+	transition: gap 0.3s ease;
+}
+
+.what_we_doing-card__button:hover {
+	gap: 20px;
+}
+@media (min-width: 1441px) {
+	.what_we_doing-cards-wrapper {
+		justify-content: flex-start;
+	}
+
+	.what_we_doing-card {
+		flex: 0 0 calc(33.333% - 20px); /* 3 карточки с учётом gap 30px */
+		max-width: calc(33.333% - 20px);
+	}
+
+	.what_we_doing-card__image {
+		aspect-ratio: 587 / 312;
+		height: auto;
+	}
+}
+
+/* ================================================== */
+/* 990px – 1440px — 2 карточки, центрируются */
+/* ================================================== */
+@media (max-width: 1440px) and (min-width: 990px) {
+	.what_we_doing-cards-wrapper {
+		justify-content: center;
+	}
+
+	.what_we_doing-card {
+		flex: 0 0 calc(50% - 15px); /* 2 карточки */
+		max-width: calc(50% - 15px);
+	}
+
+	.what_we_doing-card__image {
+		aspect-ratio: 587 / 312;
+		height: auto;
+	}
+}
+
+/* ================================================== */
+/* ≤ 990px — 1 карточка, по центру */
+/* ================================================== */
+@media (max-width: 990px) {
+	.what_we_doing-cards-wrapper {
+		justify-content: center;
+		padding: 0 20px;
+	}
+
+	.what_we_doing-card {
+		flex: 0 0 100%;
+		max-width: 587px;
+		width: 100%;
+		margin: 0 auto;
+	}
+
+	.what_we_doing-card__image {
+		aspect-ratio: 587 / 312;
+		height: auto;
+	}
+}
+.what_is_it {
+	padding: 0 40px;
+}
+.what_is_it.usluga {
+	padding-top: 140px;
+}
+.what_is_it-title {
+	margin: 40px auto;
+	text-align: center;
+	max-width: 940px;
+}
+.what_is_it-text {
+	max-width: 980px;
+	text-align: center;
+	margin: 0 auto;
+	font-size: 14px;
+	line-height: 140%;
+	font-weight: 400;
+}
+/* Общие стили для контейнера */
+.what_is_it-images {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	/* Убираем align-items: flex-start; для центрирования на мобилке */
+	/* Но сохраняем его на десктопе, чтобы карточки были вверху */
+	align-items: flex-start;
+	margin-top: 80px;
+}
+
+/* Все изображения адаптивные */
+.what_is_it-images img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+/* Cases */
+.cases-section {
+	padding: 120px 40px;
+	max-width: 1920px;
+	margin: 0 auto;
+	padding-top: 0px;
+}
+.slider-page {
+	min-width: 100%;
+	flex-shrink: 0;
+	padding: 40px 0;
+}
+.subfilters-set {
+	display: none;
+}
+.subfilters-set.active {
+	display: block;
+}
+.subfilters-wrapper {
+	margin: 40px 0 60px;
+	overflow: hidden;
+	transition: opacity 0.4s ease;
+}
+.cards-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 430px);
+	gap: 40px 40px;
+	justify-content: center;
+	max-width: 1880px;
+	margin: 0 auto;
+}
+@media (max-width: 1920px) {
+	.cards-grid {
+		grid-template-columns: repeat(4, 430px);
+		gap: 40px;
+	}
+}
+@media (max-width: 1800px) {
+	.cards-grid {
+		grid-template-columns: repeat(3, 430px);
+		gap: 40px;
+	}
+}
+@media (max-width: 1400px) {
+	.cards-grid {
+		grid-template-columns: repeat(2, 430px);
+		gap: 40px;
+	}
+}
+@media (max-width: 1000px) {
+	.cards-grid {
+		grid-template-columns: 430px;
+		gap: 60px;
+	}
+}
+#pagesContainer {
+	position: relative;
+}
+
+.cases-page {
+	display: none;
+	opacity: 0;
+	transition: opacity 0.5s ease;
+	width: 100%;
+}
+.slider-nav {
+	margin-top: 40px;
+}
+.cases-page.active {
+	display: block;
+	opacity: 1;
+}
+.cases-page .card img {
+	width: 430px;
+	height: 323px; /* 4:3 от 430px */
+	object-fit: cover;
+	transition: transform 0.4s ease;
+}
+
+.cases-page .card:hover img {
+	transform: scale(1.04);
+}
+
+.cases-page .card-text {
+	margin-top: 20px;
+	font-size: 15px;
+	line-height: 1.5;
+	color: var(--main-white);
+}
+.cases-tabs {
+	display: flex;
+	gap: 16px;
+	margin-bottom: 32px;
+	justify-content: left;
+	flex-wrap: wrap;
+}
+.cases-tab {
+	position: relative;
+	padding: 12px 24px;
+	background: transparent;
+	border: 2px solid var(--main-white);
+	color: var(--main-white);
+	font-weight: 500;
+	font-size: 16px;
+	text-transform: uppercase;
+	cursor: pointer;
+	overflow: hidden;
+	transition: color 0.4s ease;
+	display: flex;
+	gap: 24px;
+	z-index: 1;
+}
+
+/* Жёлтая подложка, которая «заезжает» слева */
+.cases-tab::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: var(--accent-yellow);
+	transform: translateX(-100%);
+	transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+	z-index: -1;
+}
+
+/* При активной кнопке */
+.cases-tab.active::before {
+	transform: translateX(0);
+}
+
+.cases-tab.active {
+	color: var(--main-green);
+	border-color: var(--accent-yellow);
+}
+
+/* Стрелка вниз */
+.cases-tab span {
+	font-family: 'Manrope', sans-serif;
+	font-size: 16px;
+	transition: transform 0.35s ease;
+}
+
+.cases-tab.active span {
+	transform: rotate(180deg);
+}
+
+.subfilter-btn {
+	flex-shrink: 0;
+	padding: 10px 20px;
+	background: transparent;
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	color: var(--main-white);
+	font-size: 14px;
+	font-weight: 500;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	white-space: nowrap;
+}
+
+.subfilter-btn:hover,
+.subfilter-btn.active {
+	background: var(--accent-yellow);
+	color: var(--main-green);
+	border-color: var(--accent-yellow);
+}
+
+.slider-nav-btn {
+	background-color: transparent;
+	border: none;
+	border: 2px solid var(--main-white);
+	color: var(--main-white);
+	font-size: 12px;
+	font-weight: 400;
+	font-family: 'Montserrat', sans-serif !important;
+	padding: 10px 16px;
+	border-radius: 50%;
+	max-width: 40px;
+	width: 100%;
+	cursor: pointer;
+	margin-right: 12px;
+}
+.slider-nav-btn.active {
+	background-color: var(--accent-yellow);
+	color: var(--main-green);
+}
+@media (min-width: 1440px) {
+	.what_is_it-images .img1 {
+		/* calc(44.09% - (20px * (3-1) / 3)) */
+		width: calc(
+			44.09% - 13.33px
+		); /* 13.33px - это часть зазора, которую надо вычесть */
+		aspect-ratio: 774 / 583;
+	}
+
+	/* 2-е изображение: ~20.79% ширины */
+	.what_is_it-images .img2 {
+		width: calc(20.79% - 13.33px);
+		aspect-ratio: 366 / 612;
+	}
+
+	/* 3-е изображение: ~35.11% ширины */
+	.what_is_it-images .img3 {
+		width: calc(35.11% - 13.33px);
+		aspect-ratio: 620 / 467;
+	}
+}
+
+/* ===== 2 изображения в ряд 990–1439px (Исправлена высота img1) ===== */
+@media (max-width: 1439px) and (min-width: 990px) {
+	.what_is_it-images {
+		/* Центрируем элементы во второй строке */
+		justify-content: center;
+		align-items: flex-start;
+	}
+
+	/* 1-е изображение (img1) */
+	.img1 {
+		flex: 0 0 100%;
+		aspect-ratio: 774 / 583;
+		/* НОВОЕ: Ограничиваем максимальный размер img1 до 900px, 
+           чтобы высота не превышала ~670px */
+		max-width: 900px;
+		margin: 0 auto 20px auto; /* Центрируем и добавляем отступ снизу */
+	}
+
+	/* 2-е и 3-е изображения (на второй строке) */
+	.img2 {
+		/* Сохраняем логику, чтобы img2 не растягивался на 50% и оставался пропорционально узким */
+		max-width: 366px;
+		flex: 0 0 auto;
+		width: 100%;
+		aspect-ratio: 366 / 612;
+		margin-right: 20px;
+		margin-left: 0;
+	}
+
+	.img3 {
+		/* Занимает оставшееся место рядом с img2 */
+		flex: 1 1 300px;
+		aspect-ratio: 620 / 467;
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+/* ===== 1 изображение в столбец ≤990px (Исправлена высота img2) ===== */
+@media (max-width: 990px) {
+	.what_is_it-images {
+		gap: 16px;
+		margin-top: 30px;
+	}
+	/* Общие правила для всех div: */
+	.what_is_it-images div {
+		flex: 0 0 100%;
+		max-width: 600px;
+	}
+
+	.img1 {
+		aspect-ratio: 774 / 583;
+	}
+
+	/* 2-е изображение (img2) */
+	.img2 {
+		max-width: 366px;
+		aspect-ratio: 366 / 450;
+	}
+
+	.img3 {
+		aspect-ratio: 620 / 467;
+	}
+	.cases-section {
+		padding: 30px 16px;
+	}
+}
+@media (max-width: 640px) {
+	.img1 {
+		aspect-ratio: 370 / 197;
+	}
+}
+.why_us {
+	padding: 120px 40px;
+}
+.why_us.usluga {
+	padding-bottom: 0;
+}
+.why_us-line img {
+	width: 100%;
+
+	margin-bottom: 120px;
+}
+.why_us-cards {
+	margin: 120px 0;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	gap: 80px;
+}
+.why_us-card {
+	max-width: 186px;
+	width: 100%;
+}
+.why_us-card-number h1 {
+	color: var(--accent-yellow);
+	text-align: center;
+}
+.why_us-card-number {
+	margin-bottom: 30px;
+}
+.why_us-card-title h5 {
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 100%;
+	text-transform: uppercase;
+	text-align: center;
+}
+.why_us-card .text-small {
+	text-align: center;
+	margin-top: 30px;
+}
+.why_us-img {
+	max-width: 462px;
+	height: 682px;
+	margin: 0 auto;
+}
+.why_us-img img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.why_us_what_give h2 {
+	text-align: center;
+	margin: 120px 0;
+}
+.why_us_what_give-item {
+	display: flex;
+	justify-content: space-between;
+	padding: 30px 0;
+	border-bottom: 1px solid var(--main-white);
+}
+.why_us_button {
+	margin-top: 120px;
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+	justify-content: center;
+	align-items: center;
+}
+.why_us_button .phone-form__wrapper {
+	margin: 0;
+}
+
 /* Adaptive */
+
+@media (max-width: 1650px) {
+	.background-text.var2 {
+		font-size: 190px;
+	}
+}
 @media (max-width: 1400px) {
 	.title {
 		font-size: 58px;
+	}
+	.background-text.var2 {
+		font-size: 160px;
 	}
 }
 @media (max-width: 1270px) {
@@ -1323,6 +1908,9 @@ a {
 	.title {
 		font-size: 48px;
 	}
+	.background-text.var2 {
+		font-size: 140px;
+	}
 }
 @media (max-width: 1140px) {
 	.side-video {
@@ -1330,6 +1918,11 @@ a {
 	}
 	.background-text {
 		font-size: 220px;
+	}
+}
+@media (max-width: 1030px) {
+	.background-text.var2 {
+		font-size: 116px;
 	}
 }
 @media (max-width: 990px) {
@@ -1368,6 +1961,63 @@ a {
 		height: auto !important;
 		overflow: visible !important;
 	}
+
+	.pin-wrapper,
+	.pinned-section,
+	.overlap-section {
+		position: static !important;
+		height: auto !important;
+		min-height: auto !important;
+		margin-top: 0 !important;
+		top: auto !important;
+	}
+
+	.pin-wrapper {
+		height: auto !important;
+	}
+
+	.service-card:hover .service-content {
+		padding-top: 30px;
+	}
+	.what_is_it-images {
+		justify-content: center;
+	}
+	.why_us-cards {
+		flex-direction: column;
+		align-items: center;
+	}
+	.why_us_what_give h2,
+	.why_us_button h2 {
+		font-size: 40px;
+	}
+	.why_us_what_give-item .text {
+		text-align: right;
+	}
+	.why_us,
+	.what_we_doing {
+		padding: 60px 16px;
+	}
+	.why_us-line img {
+		margin-bottom: 65px;
+	}
+	.why_us-cards {
+		margin: 60px 0;
+		gap: 30px;
+	}
+	.why_us-card {
+		max-width: 370px;
+	}
+	.why_us_what_give h2 {
+		margin: 60px 0;
+	}
+	.why_us_button {
+		margin-top: 60px;
+		gap: 40px;
+	}
+	.footer-line img,
+	.what_we_doing-line {
+		margin-bottom: 60px;
+	}
 }
 @media (max-width: 860px) {
 	.arrow {
@@ -1379,6 +2029,9 @@ a {
 	}
 	.background-text {
 		font-size: 170px;
+	}
+	.background-text.var2 {
+		font-size: 90px;
 	}
 }
 @media (max-width: 720px) {
@@ -1395,6 +2048,13 @@ a {
 	}
 	.background-text {
 		font-size: 140px;
+	}
+	.why_us_what_give h2,
+	.why_us_button h2 {
+		font-size: 36px;
+	}
+	.background-text.var2 {
+		font-size: 70px;
 	}
 }
 @media (max-width: 620px) {
@@ -1444,7 +2104,8 @@ a {
 	.our-works--pinned {
 		padding: 100px 16px;
 	}
-	.hero-video {
+	.hero-video,
+	.what_is_it {
 		padding: 0 16px;
 	}
 	.service-title {
@@ -1453,6 +2114,17 @@ a {
 	.our-works-pin-wrapper .uslugi {
 		margin-top: 0;
 		padding-top: 0;
+	}
+	.background-text.var2 {
+		font-size: 50px;
+	}
+	.cards-grid {
+		grid-template-columns: 370px;
+		gap: 40px;
+	}
+	.cases-page .card img {
+		width: 370px;
+		height: 312px;
 	}
 }
 @media (max-width: 480px) {
@@ -1476,5 +2148,9 @@ a {
 	}
 	.background-text {
 		font-size: 88px;
+	}
+	.why_us_what_give h2,
+	.why_us_button h2 {
+		font-size: 32px;
 	}
 }
