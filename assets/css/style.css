@@ -1711,6 +1711,7 @@ a {
 	cursor: pointer;
 	transition: all 0.3s ease;
 	white-space: nowrap;
+	margin-bottom: 5px;
 }
 
 .subfilter-btn:hover,
@@ -2399,6 +2400,12 @@ a {
 	.background-text.var2 {
 		font-size: 70px;
 	}
+	.our-works__header-wrapper {
+		display: block;
+	}
+	.our-works__header-wrapper .our-works__nav {
+		display: flex;
+	}
 }
 @media (max-width: 620px) {
 	.slide.open-video .main-video-wrap {
@@ -2452,7 +2459,11 @@ a {
 	.footer {
 		padding: 40px 16px;
 	}
-	.our-works--pinned {
+	.contacts {
+		padding: 20px 16px;
+	}
+	.our-works--pinned,
+	.our-works {
 		padding: 100px 16px;
 	}
 	.hero-video,
