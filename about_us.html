@@ -170,289 +170,291 @@
 					</div>
 				</div>
 			</section>
-			<section class="our-works case">
-				<!-- Декоративная линия -->
-				<img src="assets/svg/line.svg" alt="" class="our-works__line" />
+			<div class="pin-wrapper">
+				<section class="our-works case pinned-section about_us">
+					<!-- Декоративная линия -->
+					<img src="assets/svg/line.svg" alt="" class="our-works__line" />
 
-				<div class="our-works__header">
-					<h2 class="our-works__title">Наши работы</h2>
-					<div class="our-works__header-wrapper">
-						<div class="works-filters">
-							<!-- Главные вкладки -->
-							<div class="cases-tabs works-tabs">
-								<button class="cases-tab active" data-filter="all">
-									ВСЕ АВТО
-									<span> ↓</span>
-								</button>
-								<button class="cases-tab" data-filter="services">
-									ВИДЫ УСЛУГ
-									<span> ↓</span>
-								</button>
+					<div class="our-works__header">
+						<h2 class="our-works__title">Наши работы</h2>
+						<div class="our-works__header-wrapper">
+							<div class="works-filters">
+								<!-- Главные вкладки -->
+								<div class="cases-tabs works-tabs">
+									<button class="cases-tab active" data-filter="all">
+										ВСЕ АВТО
+										<span> ↓</span>
+									</button>
+									<button class="cases-tab" data-filter="services">
+										ВИДЫ УСЛУГ
+										<span> ↓</span>
+									</button>
+								</div>
+
+								<!-- Подфильтры -->
+								<div class="subfilters-wrapper" id="worksSubfilters">
+									<div class="subfilters-set active" data-for="all">
+										<div class="subfilters-container">
+											<button class="subfilter-btn active" data-brand="all">
+												ВСЕ
+											</button>
+											<button class="subfilter-btn" data-brand="lamborghini">
+												LAMBORGHINI
+											</button>
+											<button class="subfilter-btn" data-brand="porsche">
+												PORSCHE
+											</button>
+											<button class="subfilter-btn" data-brand="ferrari">
+												FERRARI
+											</button>
+											<button class="subfilter-btn" data-brand="aston-martin">
+												ASTON MARTIN
+											</button>
+											<button class="subfilter-btn" data-brand="audi">
+												AUDI
+											</button>
+											<!-- добавляй сколько угодно -->
+										</div>
+									</div>
+
+									<div class="subfilters-set" data-for="services">
+										<div class="subfilters-container">
+											<button class="subfilter-btn active" data-service="all">
+												ВСЕ УСЛУГИ
+											</button>
+											<button class="subfilter-btn" data-service="ppf">
+												ОКЛЕЙКА ПЛЁНКОЙ
+											</button>
+											<button class="subfilter-btn" data-service="ceramic">
+												КЕРАМИКА
+											</button>
+											<button class="subfilter-btn" data-service="tinting">
+												ТОНИРОВКА
+											</button>
+											<button class="subfilter-btn" data-service="detailing">
+												ДЕТЕЙЛИНГ
+											</button>
+											<button class="subfilter-btn" data-service="antichrom">
+												АНТИХРОМ
+											</button>
+											<button class="subfilter-btn" data-service="interior">
+												ПЕРЕТЯЖКА САЛОНА
+											</button>
+										</div>
+									</div>
+								</div>
 							</div>
-
-							<!-- Подфильтры -->
-							<div class="subfilters-wrapper" id="worksSubfilters">
-								<div class="subfilters-set active" data-for="all">
-									<div class="subfilters-container">
-										<button class="subfilter-btn active" data-brand="all">
-											ВСЕ
-										</button>
-										<button class="subfilter-btn" data-brand="lamborghini">
-											LAMBORGHINI
-										</button>
-										<button class="subfilter-btn" data-brand="porsche">
-											PORSCHE
-										</button>
-										<button class="subfilter-btn" data-brand="ferrari">
-											FERRARI
-										</button>
-										<button class="subfilter-btn" data-brand="aston-martin">
-											ASTON MARTIN
-										</button>
-										<button class="subfilter-btn" data-brand="audi">
-											AUDI
-										</button>
-										<!-- добавляй сколько угодно -->
-									</div>
-								</div>
-
-								<div class="subfilters-set" data-for="services">
-									<div class="subfilters-container">
-										<button class="subfilter-btn active" data-service="all">
-											ВСЕ УСЛУГИ
-										</button>
-										<button class="subfilter-btn" data-service="ppf">
-											ОКЛЕЙКА ПЛЁНКОЙ
-										</button>
-										<button class="subfilter-btn" data-service="ceramic">
-											КЕРАМИКА
-										</button>
-										<button class="subfilter-btn" data-service="tinting">
-											ТОНИРОВКА
-										</button>
-										<button class="subfilter-btn" data-service="detailing">
-											ДЕТЕЙЛИНГ
-										</button>
-										<button class="subfilter-btn" data-service="antichrom">
-											АНТИХРОМ
-										</button>
-										<button class="subfilter-btn" data-service="interior">
-											ПЕРЕТЯЖКА САЛОНА
-										</button>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- Кнопки навигации — прижаты влево -->
-						<div class="our-works__nav">
-							<button class="our-works__nav-btn our-works__nav-btn--prev">
-								<img src="assets/svg/arrow2.svg" alt="Назад" />
-							</button>
-							<button class="our-works__nav-btn our-works__nav-btn--next">
-								<img src="assets/svg/arrow2.svg" alt="Вперёд" />
-							</button>
-						</div>
-					</div>
-				</div>
-
-				<!-- Нижняя часть с фоновым изображением (половина высоты блока) + слайдер + кнопка -->
-				<div class="our-works__bottom">
-					<div class="works-slider">
-						<div class="swiper">
-							<div class="swiper-wrapper">
-								<div
-									class="swiper-slide"
-									data-brand="lamborghini"
-									data-service="ppf interior"
-								>
-									<div class="works-slider__item">
-										<img
-											src="assets/img/car2.png"
-											alt=""
-											class="works-slider__img"
-										/>
-										<p class="works-slider__caption">
-											Lamborghini Urus Performante — защита кузова и обновление
-											интерьера
-										</p>
-										<img
-											src="assets/svg/icon_angle.svg"
-											alt=""
-											class="works-slider__icon"
-										/>
-									</div>
-								</div>
-
-								<div
-									class="swiper-slide"
-									data-brand="porsche"
-									data-service="ceramic"
-								>
-									<div class="works-slider__item">
-										<img
-											src="assets/img/car3.png"
-											alt=""
-											class="works-slider__img"
-										/>
-										<p class="works-slider__caption">
-											Porsche 911 Turbo S — керамическое покрытие
-										</p>
-										<img
-											src="assets/svg/icon_angle.svg"
-											alt=""
-											class="works-slider__icon"
-										/>
-									</div>
-								</div>
-								<div
-									class="swiper-slide"
-									data-brand="lamborghini"
-									data-service="ppf interior"
-								>
-									<div class="works-slider__item">
-										<img
-											src="assets/img/car2.png"
-											alt=""
-											class="works-slider__img"
-										/>
-										<p class="works-slider__caption">
-											Lamborghini Urus Performante — защита кузова и обновление
-											интерьера
-										</p>
-										<img
-											src="assets/svg/icon_angle.svg"
-											alt=""
-											class="works-slider__icon"
-										/>
-									</div>
-								</div>
-
-								<div
-									class="swiper-slide"
-									data-brand="porsche"
-									data-service="ceramic"
-								>
-									<div class="works-slider__item">
-										<img
-											src="assets/img/car3.png"
-											alt=""
-											class="works-slider__img"
-										/>
-										<p class="works-slider__caption">
-											Porsche 911 Turbo S — керамическое покрытие
-										</p>
-										<img
-											src="assets/svg/icon_angle.svg"
-											alt=""
-											class="works-slider__icon"
-										/>
-									</div>
-								</div>
-								<div
-									class="swiper-slide"
-									data-brand="lamborghini"
-									data-service="ppf interior"
-								>
-									<div class="works-slider__item">
-										<img
-											src="assets/img/car2.png"
-											alt=""
-											class="works-slider__img"
-										/>
-										<p class="works-slider__caption">
-											Lamborghini Urus Performante — защита кузова и обновление
-											интерьера
-										</p>
-										<img
-											src="assets/svg/icon_angle.svg"
-											alt=""
-											class="works-slider__icon"
-										/>
-									</div>
-								</div>
-
-								<div
-									class="swiper-slide"
-									data-brand="porsche"
-									data-service="ceramic"
-								>
-									<div class="works-slider__item">
-										<img
-											src="assets/img/car3.png"
-											alt=""
-											class="works-slider__img"
-										/>
-										<p class="works-slider__caption">
-											Porsche 911 Turbo S — керамическое покрытие
-										</p>
-										<img
-											src="assets/svg/icon_angle.svg"
-											alt=""
-											class="works-slider__icon"
-										/>
-									</div>
-								</div>
-								<div
-									class="swiper-slide"
-									data-brand="lamborghini"
-									data-service="ppf interior"
-								>
-									<div class="works-slider__item">
-										<img
-											src="assets/img/car2.png"
-											alt=""
-											class="works-slider__img"
-										/>
-										<p class="works-slider__caption">
-											Lamborghini Urus Performante — защита кузова и обновление
-											интерьера
-										</p>
-										<img
-											src="assets/svg/icon_angle.svg"
-											alt=""
-											class="works-slider__icon"
-										/>
-									</div>
-								</div>
-
-								<div
-									class="swiper-slide"
-									data-brand="porsche"
-									data-service="ceramic"
-								>
-									<div class="works-slider__item">
-										<img
-											src="assets/img/car3.png"
-											alt=""
-											class="works-slider__img"
-										/>
-										<p class="works-slider__caption">
-											Porsche 911 Turbo S — керамическое покрытие
-										</p>
-										<img
-											src="assets/svg/icon_angle.svg"
-											alt=""
-											class="works-slider__icon"
-										/>
-									</div>
-								</div>
+							<!-- Кнопки навигации — прижаты влево -->
+							<div class="our-works__nav">
+								<button class="our-works__nav-btn our-works__nav-btn--prev">
+									<img src="assets/svg/arrow2.svg" alt="Назад" />
+								</button>
+								<button class="our-works__nav-btn our-works__nav-btn--next">
+									<img src="assets/svg/arrow2.svg" alt="Вперёд" />
+								</button>
 							</div>
 						</div>
 					</div>
 
-					<!-- Кнопка "Все работы" — тоже слева -->
-					<button class="our-works__all">
-						<img
-							src="assets/svg/arrow.svg"
-							alt=""
-							style="width: 40px; height: 40px"
-						/>
-						Все работы
-					</button>
-				</div>
-			</section>
+					<!-- Нижняя часть с фоновым изображением (половина высоты блока) + слайдер + кнопка -->
+					<div class="our-works__bottom">
+						<div class="works-slider">
+							<div class="swiper">
+								<div class="swiper-wrapper">
+									<div
+										class="swiper-slide"
+										data-brand="lamborghini"
+										data-service="ppf interior"
+									>
+										<div class="works-slider__item">
+											<img
+												src="assets/img/car2.png"
+												alt=""
+												class="works-slider__img"
+											/>
+											<p class="works-slider__caption">
+												Lamborghini Urus Performante — защита кузова и
+												обновление интерьера
+											</p>
+											<img
+												src="assets/svg/icon_angle.svg"
+												alt=""
+												class="works-slider__icon"
+											/>
+										</div>
+									</div>
+
+									<div
+										class="swiper-slide"
+										data-brand="porsche"
+										data-service="ceramic"
+									>
+										<div class="works-slider__item">
+											<img
+												src="assets/img/car3.png"
+												alt=""
+												class="works-slider__img"
+											/>
+											<p class="works-slider__caption">
+												Porsche 911 Turbo S — керамическое покрытие
+											</p>
+											<img
+												src="assets/svg/icon_angle.svg"
+												alt=""
+												class="works-slider__icon"
+											/>
+										</div>
+									</div>
+									<div
+										class="swiper-slide"
+										data-brand="lamborghini"
+										data-service="ppf interior"
+									>
+										<div class="works-slider__item">
+											<img
+												src="assets/img/car2.png"
+												alt=""
+												class="works-slider__img"
+											/>
+											<p class="works-slider__caption">
+												Lamborghini Urus Performante — защита кузова и
+												обновление интерьера
+											</p>
+											<img
+												src="assets/svg/icon_angle.svg"
+												alt=""
+												class="works-slider__icon"
+											/>
+										</div>
+									</div>
+
+									<div
+										class="swiper-slide"
+										data-brand="porsche"
+										data-service="ceramic"
+									>
+										<div class="works-slider__item">
+											<img
+												src="assets/img/car3.png"
+												alt=""
+												class="works-slider__img"
+											/>
+											<p class="works-slider__caption">
+												Porsche 911 Turbo S — керамическое покрытие
+											</p>
+											<img
+												src="assets/svg/icon_angle.svg"
+												alt=""
+												class="works-slider__icon"
+											/>
+										</div>
+									</div>
+									<div
+										class="swiper-slide"
+										data-brand="lamborghini"
+										data-service="ppf interior"
+									>
+										<div class="works-slider__item">
+											<img
+												src="assets/img/car2.png"
+												alt=""
+												class="works-slider__img"
+											/>
+											<p class="works-slider__caption">
+												Lamborghini Urus Performante — защита кузова и
+												обновление интерьера
+											</p>
+											<img
+												src="assets/svg/icon_angle.svg"
+												alt=""
+												class="works-slider__icon"
+											/>
+										</div>
+									</div>
+
+									<div
+										class="swiper-slide"
+										data-brand="porsche"
+										data-service="ceramic"
+									>
+										<div class="works-slider__item">
+											<img
+												src="assets/img/car3.png"
+												alt=""
+												class="works-slider__img"
+											/>
+											<p class="works-slider__caption">
+												Porsche 911 Turbo S — керамическое покрытие
+											</p>
+											<img
+												src="assets/svg/icon_angle.svg"
+												alt=""
+												class="works-slider__icon"
+											/>
+										</div>
+									</div>
+									<div
+										class="swiper-slide"
+										data-brand="lamborghini"
+										data-service="ppf interior"
+									>
+										<div class="works-slider__item">
+											<img
+												src="assets/img/car2.png"
+												alt=""
+												class="works-slider__img"
+											/>
+											<p class="works-slider__caption">
+												Lamborghini Urus Performante — защита кузова и
+												обновление интерьера
+											</p>
+											<img
+												src="assets/svg/icon_angle.svg"
+												alt=""
+												class="works-slider__icon"
+											/>
+										</div>
+									</div>
+
+									<div
+										class="swiper-slide"
+										data-brand="porsche"
+										data-service="ceramic"
+									>
+										<div class="works-slider__item">
+											<img
+												src="assets/img/car3.png"
+												alt=""
+												class="works-slider__img"
+											/>
+											<p class="works-slider__caption">
+												Porsche 911 Turbo S — керамическое покрытие
+											</p>
+											<img
+												src="assets/svg/icon_angle.svg"
+												alt=""
+												class="works-slider__icon"
+											/>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Кнопка "Все работы" — тоже слева -->
+						<button class="our-works__all">
+							<img
+								src="assets/svg/arrow.svg"
+								alt=""
+								style="width: 40px; height: 40px"
+							/>
+							Все работы
+						</button>
+					</div>
+				</section>
+			</div>
 		</main>
-		<footer class="">
+		<footer class="overlap-section">
 			<div class="footer">
 				<div class="footer-line">
 					<img src="assets/svg/line.svg" alt="" />

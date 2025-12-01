@@ -88,9 +88,11 @@
 											</video>
 										</div>
 
-										<button class="toggle-btn" data-state="closed">
-											<span class="open">СМОТРЕТЬ ВИДЕО</span>
-											<span class="close">ЗАКРЫТЬ ВИДЕО</span>
+										<button class="toggle-btn" aria-label="Видео">
+											<span class="toggle-inner">
+												<span class="toggle-label">СМОТРЕТЬ ВИДЕО</span>
+												<span class="toggle-label">ЗАКРЫТЬ ВИДЕО</span>
+											</span>
 										</button>
 
 										<h1 class="title">
@@ -133,9 +135,11 @@
 											</video>
 										</div>
 
-										<button class="toggle-btn" data-state="closed">
-											<span class="open">СМОТРЕТЬ ВИДЕО</span>
-											<span class="close">ЗАКРЫТЬ ВИДЕО</span>
+										<button class="toggle-btn" aria-label="Видео">
+											<span class="toggle-inner">
+												<span class="toggle-label">СМОТРЕТЬ ВИДЕО</span>
+												<span class="toggle-label">ЗАКРЫТЬ ВИДЕО</span>
+											</span>
 										</button>
 
 										<h1 class="title">
@@ -182,7 +186,7 @@
 
 				<div class="services-grid">
 					<!-- Пример карточки -->
-					<a href="#" class="service-card">
+					<a href="usluga_main.html" class="service-card">
 						<video
 							class="service-video"
 							autoplay
@@ -206,7 +210,7 @@
 							</div>
 						</div>
 					</a>
-					<a href="#" class="service-card">
+					<a href="usluga_main.html" class="service-card">
 						<video
 							class="service-video"
 							autoplay
@@ -230,7 +234,7 @@
 							</div>
 						</div>
 					</a>
-					<a href="#" class="service-card">
+					<a href="usluga_main.html" class="service-card">
 						<video
 							class="service-video"
 							autoplay
@@ -254,7 +258,7 @@
 							</div>
 						</div>
 					</a>
-					<a href="#" class="service-card">
+					<a href="usluga_main.html" class="service-card">
 						<video
 							class="service-video"
 							autoplay
@@ -278,7 +282,7 @@
 							</div>
 						</div>
 					</a>
-					<a href="#" class="service-card">
+					<a href="usluga_main.html" class="service-card">
 						<video
 							class="service-video"
 							autoplay
@@ -302,7 +306,7 @@
 							</div>
 						</div>
 					</a>
-					<a href="#" class="service-card">
+					<a href="usluga_main.html" class="service-card">
 						<video
 							class="service-video"
 							autoplay
@@ -483,14 +487,14 @@
 						</div>
 
 						<!-- Кнопка "Все работы" — тоже слева -->
-						<button class="our-works__all">
+						<a href="cases.html" class="our-works__all">
 							<img
 								src="assets/svg/arrow.svg"
 								alt=""
 								style="width: 40px; height: 40px"
 							/>
 							Все работы
-						</button>
+						</a>
 					</div>
 				</section>
 			</div>
@@ -774,6 +778,36 @@
 				</div>
 			</div>
 		</div>
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				const video = document.querySelector('.hero-video')
+				if (!video) return
+
+				function updateVideoState() {
+					const rect = video.getBoundingClientRect()
+					const windowHeight = window.innerHeight
+
+					// Считаем, насколько видео уже «проехало» через центр экрана
+					const videoCenter = rect.top + rect.height / 2
+					const triggerStart = windowHeight * 0.5 // начинаем растягивать
+					const triggerEnd = windowHeight * 0.3 // начинаем сжимать обратно
+
+					if (rect.top <= triggerStart && videoCenter >= triggerEnd) {
+						// Видео находится в «зоне полного экрана» — от 30% до 70% высоты окна
+						video.classList.add('hero-video--fullscreen')
+					} else {
+						video.classList.remove('hero-video--fullscreen')
+					}
+				}
+
+				// Запускаем при скролле и ресайзе
+				window.addEventListener('scroll', updateVideoState)
+				window.addEventListener('resize', updateVideoState)
+
+				// Первая проверка
+				updateVideoState()
+			})
+		</script>
 		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 		<script>
 			const worksSlider = new Swiper('.works-slider .swiper', {
